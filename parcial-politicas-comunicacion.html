@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parcial — Políticas de Comunicación</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0e12;
+  --surface: #16161c;
+  --surface2: #1e1e26;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8e6f0;
+  --muted: #7a7890;
+  --accent1: #c8f060;
+  --accent2: #ff6b6b;
+  --accent3: #60c8f0;
+  --accent4: #f0a060;
+  --accent5: #c060f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,14,18,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; gap: 2px; height: 52px;
+  overflow-x: auto;
+}
+nav a {
+  color: var(--muted); text-decoration: none;
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  padding: 6px 12px; border-radius: 6px;
+  transition: all .2s; white-space: nowrap;
+  border: 1px solid transparent;
+}
+nav a:hover { color: var(--text); background: var(--surface2); }
+nav a.active { color: var(--bg); background: var(--accent1); border-color: var(--accent1); }
+
+/* HERO */
+.hero {
+  padding: 5rem 2rem 3rem;
+  max-width: 860px; margin: 0 auto;
+  text-align: center;
+}
+.hero-label {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--accent1); margin-bottom: 1.5rem;
+  display: inline-block;
+  border: 1px solid rgba(200,240,96,.25);
+  padding: 4px 14px; border-radius: 20px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.05; margin-bottom: 1rem;
+  background: linear-gradient(135deg, #e8e6f0 0%, #c8f060 50%, #60c8f0 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  color: var(--muted); font-size: 16px;
+  max-width: 480px; margin: 0 auto 2rem;
+}
+.hero-meta {
+  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+}
+.hero-meta span {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  color: var(--muted);
+}
+.hero-meta strong { color: var(--accent1); }
+
+/* SECTIONS */
+section {
+  max-width: 860px; margin: 0 auto;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.section-num {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: var(--bg); background: var(--accent1);
+  padding: 2px 10px; border-radius: 4px;
+  font-weight: 500;
+}
+.section-num.u2 { background: var(--accent3); }
+.section-num.u3 { background: var(--accent2); }
+.section-num.u4 { background: var(--accent5); }
+.section-num.songs { background: var(--accent4); }
+.section-num.leyes { background: var(--accent2); }
+.section-title {
+  font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
+}
+
+/* SONG TABS */
+.song-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.song-tab {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  padding: 6px 14px; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  cursor: pointer; transition: all .2s;
+}
+.song-tab:hover { border-color: var(--accent4); color: var(--accent4); }
+.song-tab.active { background: var(--accent4); border-color: var(--accent4); color: #000; font-weight: 500; }
+.song-panel { display: none; }
+.song-panel.visible { display: block; }
+.song-meta { margin-bottom: 1.5rem; }
+.song-meta h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
+.song-meta .cover { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
+.unit-badge {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--surface2); color: var(--muted);
+  border: 1px solid var(--border);
+}
+.lyrics { display: flex; flex-direction: column; gap: 1.5rem; }
+.lyric-block { }
+.lyric-label {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.lyric-line { line-height: 2.1; color: #ccc; }
+.lyric-line .key { color: var(--accent4); font-weight: 500; }
+.lyric-line .auth { font-size: 11px; color: var(--muted); font-style: italic; margin-left: 6px; }
+.lyric-divider { border: none; border-top: 1px solid var(--border); margin: .5rem 0; }
+.song-note {
+  margin-top: 1.5rem;
+  background: rgba(240,160,96,.07);
+  border: 1px solid rgba(240,160,96,.2);
+  border-radius: 8px; padding: 12px 16px;
+  font-size: 13px; color: var(--muted);
+}
+.song-note strong { color: var(--accent4); }
+
+/* CONCEPT GRID */
+.concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.1rem;
+  transition: border-color .2s;
+}
+.concept-card:hover { border-color: rgba(255,255,255,.15); }
+.concept-card .card-label {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.concept-card h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.concept-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.concept-card .author { font-size: 11px; font-style: italic; color: #555; margin-top: 6px; }
+
+.c1 .card-label { color: var(--accent1); }
+.c2 .card-label { color: var(--accent3); }
+.c3 .card-label { color: var(--accent2); }
+.c4 .card-label { color: var(--accent5); }
+.c5 .card-label { color: var(--accent4); }
+.c1 { border-left: 2px solid rgba(200,240,96,.3); }
+.c2 { border-left: 2px solid rgba(96,200,240,.3); }
+.c3 { border-left: 2px solid rgba(255,107,107,.3); }
+.c4 { border-left: 2px solid rgba(192,96,240,.3); }
+.c5 { border-left: 2px solid rgba(240,160,96,.3); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 1.5rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 1.5rem; }
+.tl-item::before {
+  content: ''; position: absolute; left: -1.5rem; top: 8px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--surface2); border: 1px solid var(--muted);
+  transform: translateX(-3px);
+}
+.tl-item.highlight::before { background: var(--accent1); border-color: var(--accent1); }
+.tl-item.danger::before { background: var(--accent2); border-color: var(--accent2); }
+.tl-year {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: var(--muted); margin-bottom: 2px;
+}
+.tl-law {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+  margin-bottom: 2px;
+}
+.tl-desc { font-size: 13px; color: var(--muted); }
+
+/* LAWS TABLE */
+.law-table { width: 100%; border-collapse: collapse; }
+.law-table th {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); text-align: left;
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+}
+.law-table td {
+  padding: 10px 12px; font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.law-table tr:last-child td { border-bottom: none; }
+.law-table tr:hover td { background: var(--surface2); }
+.law-num {
+  font-family: 'DM Mono', monospace; font-weight: 500;
+  color: var(--accent1); white-space: nowrap;
+}
+.law-table .pres { color: var(--muted); font-size: 12px; }
+
+/* DISTINCTIONS */
+.distinction { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.dist-side {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px;
+}
+.dist-side h5 {
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  margin-bottom: 6px;
+}
+.dist-side.a h5 { color: var(--accent1); }
+.dist-side.b h5 { color: var(--accent2); }
+.dist-side p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* PHASES */
+.phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.phase-card {
+  border-radius: 10px; padding: 1.1rem;
+  border: 1px solid var(--border);
+}
+.phase-card .pnum { font-family: 'DM Mono', monospace; font-size: 11px; margin-bottom: 4px; }
+.phase-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
+.phase-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.ph1 { background: rgba(96,200,240,.06); border-color: rgba(96,200,240,.2); }
+.ph1 .pnum { color: var(--accent3); }
+.ph2 { background: rgba(200,240,96,.06); border-color: rgba(200,240,96,.2); }
+.ph2 .pnum { color: var(--accent1); }
+.ph3 { background: rgba(255,107,107,.06); border-color: rgba(255,107,107,.2); }
+.ph3 .pnum { color: var(--accent2); }
+
+/* NOMIC FLOW */
+.nomic-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+.nomic-node {
+  flex: 1; min-width: 160px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem;
+}
+.nomic-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 8px; color: var(--muted); font-size: 18px;
+  flex-shrink: 0;
+}
+.nomic-node h5 { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.nomic-node .year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.nomic-node p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CONCENTRATION */
+.conc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.conc-card {
+  border-radius: 10px; padding: 1rem;
+  border: 1px solid var(--border);
+}
+.conc-econ { background: rgba(240,160,96,.07); border-color: rgba(240,160,96,.2); }
+.conc-simb { background: rgba(255,107,107,.07); border-color: rgba(255,107,107,.2); }
+.conc-card h5 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
+.conc-econ h5 { color: var(--accent4); }
+.conc-simb h5 { color: var(--accent2); }
+.conc-card p { font-size: 13px; color: var(--muted); }
+
+/* PLATFORMS */
+.plat-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.plat-col { }
+.plat-col h5 {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.plat-col.excusas h5 { color: var(--accent2); }
+.plat-col.rebate h5 { color: var(--accent1); }
+.plat-item {
+  font-size: 13px; color: var(--muted); padding: 8px 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; margin-bottom: 6px; line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  max-width: 860px; margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+footer p { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+footer strong { color: var(--accent1); }
+
+@media (max-width: 600px) {
+  .phases, .conc-grid, .plat-cols, .distinction { grid-template-columns: 1fr; }
+  .nomic-flow { flex-direction: column; }
+  .nomic-arrow { transform: rotate(90deg); }
+  .hero h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#canciones" class="active">Canciones</a>
+  <a href="#u1">U1 Estado</a>
+  <a href="#u2">U2 Argentina</a>
+  <a href="#u3">U3 Concentración</a>
+  <a href="#u4">U4 Marcos</a>
+  <a href="#leyes">Leyes</a>
+  <a href="#distinciones">Distinciones</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-label">Material de estudio</span>
+  <h1>Políticas de Comunicación</h1>
+  <p>Canciones, mapas conceptuales y guías rápidas para el parcial del miércoles</p>
+  <div class="hero-meta">
+    <span><strong>4</strong> unidades</span>
+    <span><strong>4</strong> canciones</span>
+    <span><strong>+30</strong> conceptos clave</span>
+    <span><strong>miércoles</strong> parcial</span>
+  </div>
+</div>
+
+<!-- CANCIONES -->
+<section id="canciones">
+  <div class="section-header">
+    <span class="section-num songs">canciones</span>
+    <h2 class="section-title">El álbum del parcial</h2>
+  </div>
+
+  <div class="song-tabs">
+    <button class="song-tab active" onclick="showSong(0)">U1 — Despacito</button>
+    <button class="song-tab" onclick="showSong(1)">U2 — Yo Perreo Sola</button>
+    <button class="song-tab" onclick="showSong(2)">U3 — BZRP x Nathy</button>
+    <button class="song-tab" onclick="showSong(3)">U4 — Argentina</button>
+  </div>
+
+  <div class="song-panel visible" id="song0">
+    <div class="song-meta">
+      <h3>El Estado (Despacito)</h3>
+      <div class="cover">cover de Despacito — Luis Fonsi ft. Daddy Yankee</div>
+      <span class="unit-badge">Unidad 1 — Estado y políticas públicas</span>
+    </div>
+    <div class="lyrics">
+      <div class="lyric-block">
+        <div class="lyric-label">Intro</div>
+        <div class="lyric-line">Eh-eh-eh... Califano, Valles, O'Donnell, vamos</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 1 — El Estado</div>
+        <div class="lyric-line">El Estado no es una cosa, no es una entidad<span class="auth">Califano</span></div>
+        <div class="lyric-line">es una <span class="key">relación social</span>, eso dice O'Donnell de verdad</div>
+        <div class="lyric-line">condensa los poderes que emergen de la sociedad</div>
+        <div class="lyric-line">y los devuelve como <span class="key">políticas y omisiones</span>, ya verás</div>
+        <div class="lyric-line">Mann le suma cuatro elementos pa' completar<span class="auth">Califano</span></div>
+        <div class="lyric-line">instituciones, centralización, territorio y monopolio al usar</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Coro — Politics vs Policy</div>
+        <div class="lyric-line">De-spa-ci-to... <span class="key">politics</span> es la lucha electoral<span class="auth">Valles</span></div>
+        <div class="lyric-line"><span class="key">policy</span> es la acción concreta del Estado ya</div>
+        <div class="lyric-line">en inglés se distinguen, en castellano no están</div>
+        <div class="lyric-line">¡pero en el parcial las separo y el punto se me da!</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 2 — Tipos de política y ciclo</div>
+        <div class="lyric-line">Cuatro categorías de Lowi hay que nombrar<span class="auth">Valles</span></div>
+        <div class="lyric-line"><span class="key">regulativas, distributivas</span>, redistributivas ya</div>
+        <div class="lyric-line">e <span class="key">institucionales</span> que fijan el procedimiento igual</div>
+        <div class="lyric-line">el ciclo tiene cuatro etapas pa' elaborar:</div>
+        <div class="lyric-line">iniciación, elaboración, implantación, evaluar</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Puente — Modelos de decisión</div>
+        <div class="lyric-line"><span class="key">Racionalidad radical</span> es optimizar<span class="auth">Valles</span></div>
+        <div class="lyric-line"><span class="key">racionalidad limitada</span> es satisfacer nomás</div>
+        <div class="lyric-line">el <span class="key">incremental</span> es ajuste mutuo al andar</div>
+        <div class="lyric-line">y el <span class="key">garbage can</span> es puro caos y casualidad</div>
+      </div>
+    </div>
+    <div class="song-note"><strong>Para recordar:</strong> Despacito = despacio = proceso paso a paso = el ciclo de elaboración de políticas.</div>
+  </div>
+
+  <div class="song-panel" id="song1">
+    <div class="song-meta">
+      <h3>Yo Estudio Sola (Yo Perreo Sola)</h3>
+      <div class="cover">cover de Yo Perreo Sola — Bad Bunny</div>
+      <span class="unit-badge">Unidad 2 — Historia argentina + NOMIC + Servicio público</span>
+    </div>
+    <div class="lyrics">
+      <div class="lyric-block">
+        <div class="lyric-label">Intro</div>
+        <div class="lyric-line">Yo perreo sola... con la ley <span class="key">22.285</span> en la mano</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 1 — Historia argentina</div>
+        <div class="lyric-line"><span class="key">22.285</span>, Videla, 1980<span class="auth">Cronología</span></div>
+        <div class="lyric-line">militares en el COMFER, sin fines de lucro, queda afuera</div>
+        <div class="lyric-line">el artículo <span class="key">114</span> renueva todo automático</div>
+        <div class="lyric-line">y esa ley duró hasta 2009, lo juro, fue dramático</div>
+        <div class="lyric-line">Menem privatiza con la <span class="key">23.696</span></div>
+        <div class="lyric-line">canales 11 y 13 pa' Telefé y Clarín, eso fue</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Coro — Graziano y las PNC</div>
+        <div class="lyric-line">Yo estudio sola, yo estudio sola</div>
+        <div class="lyric-line"><span class="key">política antes que ley</span>, dice Graziano eso<span class="auth">Graziano</span></div>
+        <div class="lyric-line">pusieron el carro delante de los bueyes, eso</div>
+        <div class="lyric-line">etapa <span class="key">formalista</span> primero, luego <span class="key">contenidista</span></div>
+        <div class="lyric-line">con acceso, participación, nueva lista</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 2 — NOMIC y MacBride</div>
+        <div class="lyric-line">Los No Alineados piden flujo equilibrado<span class="auth">Mastrini & De Charras</span></div>
+        <div class="lyric-line">el libre flujo de info a ellos los ha perjudicado</div>
+        <div class="lyric-line"><span class="key">MacBride 1980</span>: comunicar es un derecho humano</div>
+        <div class="lyric-line">EEUU se va de la UNESCO, debate fue bloqueado</div>
+        <div class="lyric-line">la CMSI 2003 lo llama <span class="key">brecha digital</span> nomás</div>
+        <div class="lyric-line">desequilibrio informativo renombrado, igual pero disfraz</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Puente — Servicio público</div>
+        <div class="lyric-line"><span class="key">Informar, educar, entretener</span>: el modelo europeo<span class="auth">Mastrini</span></div>
+        <div class="lyric-line">universalidad, continuidad y cambio como recreo</div>
+        <div class="lyric-line"><span class="key">medios estatales</span> no es lo mismo que <span class="key">medios públicos</span></div>
+        <div class="lyric-line">en Argentina siempre fueron gubernamentales, eso fue el vicio</div>
+      </div>
+    </div>
+    <div class="song-note"><strong>Para recordar:</strong> "Yo perreo sola" = las PNC fracasaron porque los impulsores no pudieron sumar aliados. Estudiaron solos y perdieron.</div>
+  </div>
+
+  <div class="song-panel" id="song2">
+    <div class="song-meta">
+      <h3>BZRP Music Sessions — Concentración</h3>
+      <div class="cover">cover de BZRP x Nathy Peluso</div>
+      <span class="unit-badge">Unidad 3 — Concentración, industrias culturales, plataformas</span>
+    </div>
+    <div class="lyrics">
+      <div class="lyric-block">
+        <div class="lyric-label">Intro</div>
+        <div class="lyric-line">Soy la que manda, la que regula, la que concentra</div>
+        <div class="lyric-line">soy Clarín, soy Google, soy la que siempre entra</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 1 — Industrias culturales</div>
+        <div class="lyric-line">Alto costo fijo, bajo costo marginal<span class="auth">Becerra & Mastrini</span></div>
+        <div class="lyric-line">demanda incierta, riesgo total</div>
+        <div class="lyric-line"><span class="key">efectos de red</span>: cuantos más, más vale estar</div>
+        <div class="lyric-line">eso genera monopolios, fácil de notar</div>
+        <div class="lyric-line"><span class="key">modelo editorial</span>: el editor decide el producto</div>
+        <div class="lyric-line"><span class="key">modelo de flujo</span>: el programador es el conducto</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Coro — Concentración</div>
+        <div class="lyric-line"><span class="key">CR4</span> supera el ochenta en América Latina<span class="auth">Becerra & Mastrini</span></div>
+        <div class="lyric-line">doble dimensión: económica y la que al pluralismo lastima</div>
+        <div class="lyric-line">no es solo un problema de mercado, es de democracia</div>
+        <div class="lyric-line">concentración más poder simbólico es la desgracia</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 2 — Plataformas</div>
+        <div class="lyric-line">"No somos medios, somos tech", dicen con cara dura<span class="auth">Napoli & Caplan</span></div>
+        <div class="lyric-line">pero venden publicidad, esa es su estructura</div>
+        <div class="lyric-line">tres excusas dan para no ser reguladas igual:</div>
+        <div class="lyric-line">"no producimos", "somos código", "no hay editorial"</div>
+        <div class="lyric-line">pero Google tiene el noventa por ciento en búsquedas</div>
+        <div class="lyric-line">y Facebook compite con la tele, esas son las pruebas</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Puente — Techlash</div>
+        <div class="lyric-line"><span class="key">Techlash</span> desde 2016: Cambridge Analytica llegó<span class="auth">Flew, Martin & Suzor</span></div>
+        <div class="lyric-line">fake news, privacidad, el escándalo explotó</div>
+        <div class="lyric-line">moderación de contenidos: algoritmos más humanos al final</div>
+        <div class="lyric-line"><span class="key">Sección 230</span>: puerto seguro que las protege aún</div>
+        <div class="lyric-line">¿editoras o intermediarias? ese es el debate común</div>
+      </div>
+    </div>
+    <div class="song-note"><strong>Para recordar:</strong> Nathy canta con actitud de quien sabe que manda. Las plataformas tienen exactamente esa actitud.</div>
+  </div>
+
+  <div class="song-panel" id="song3">
+    <div class="song-meta">
+      <h3>Argentina (de Trueno)</h3>
+      <div class="cover">cover de Argentina — Trueno</div>
+      <span class="unit-badge">Unidad 4 — Marcos regulatorios comparados</span>
+    </div>
+    <div class="lyrics">
+      <div class="lyric-block">
+        <div class="lyric-label">Intro</div>
+        <div class="lyric-line">Ar-gen-ti-na... pero también Europa y el resto del mundo</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 1 — Las 3 fases</div>
+        <div class="lyric-line"><span class="key">Fase Uno</span>: tecnología emergente, reglas ad hoc<span class="auth">Van Cuilenburg & McQuail</span></div>
+        <div class="lyric-line">telégrafo, radio, teléfono: cada uno su bloc</div>
+        <div class="lyric-line"><span class="key">Fase Dos</span>: posguerra, servicio público tomó el mando</div>
+        <div class="lyric-line">BBC, RAI, normativa sociopolítica avanzando</div>
+        <div class="lyric-line"><span class="key">Fase Tres</span>: desde Reagan, el mercado gobierna</div>
+        <div class="lyric-line">privatización, convergencia, la lógica se moderniza y alterna</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Coro — McQuail</div>
+        <div class="lyric-line">Ar-gen-ti-na, pero hay <span class="key">seis razones</span> pa' regular<span class="auth">McQuail</span></div>
+        <div class="lyric-line">gestionar la info, el orden, los derechos al cuidar</div>
+        <div class="lyric-line">promover eficiencia, el acceso universal</div>
+        <div class="lyric-line"><span class="key">liberal, dem. corporativista, pluralista polarizado</span></div>
+        <div class="lyric-line">tres modelos de Hallin y Mancini para comparar</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Estrofa 2 — Flew</div>
+        <div class="lyric-line">Dicen que la globalización mató al Estado-nación<span class="auth">Flew</span></div>
+        <div class="lyric-line">Flew responde: no, sigue siendo la institución</div>
+        <div class="lyric-line">los medios convergen pero las reglas divergen igual</div>
+        <div class="lyric-line">cada país responde diferente al cambio digital</div>
+      </div>
+      <hr class="lyric-divider">
+      <div class="lyric-block">
+        <div class="lyric-label">Puente — Puppis</div>
+        <div class="lyric-line"><span class="key">Regulación</span> es la norma legal específica<span class="auth">Puppis</span></div>
+        <div class="lyric-line"><span class="key">gobernanza</span> es el conjunto total, más amplia y dinámica</div>
+        <div class="lyric-line">autorregulación: la industria se pone sus propias reglas</div>
+        <div class="lyric-line">co-regulación: Estado más industria, combinan sus huellas</div>
+      </div>
+    </div>
+    <div class="song-note"><strong>Para recordar:</strong> "Argentina" de Trueno habla de identidad y trayectoria histórica — el argumento central de Flew: cada sistema mediático tiene su historia propia.</div>
+  </div>
+</section>
+
+<!-- U1 -->
+<section id="u1">
+  <div class="section-header">
+    <span class="section-num">U1</span>
+    <h2 class="section-title">Estado y políticas públicas</h2>
+  </div>
+  <div class="concept-grid">
+    <div class="concept-card c1">
+      <div class="card-label">Estado</div>
+      <h4>Relación social</h4>
+      <p>No es árbitro neutral. Condensa poderes sociales y los devuelve como políticas, omisiones e impactos.</p>
+      <div class="author">O'Donnell / Califano</div>
+    </div>
+    <div class="concept-card c2">
+      <div class="card-label">Distinción clave</div>
+      <h4>Politics vs. Policy</h4>
+      <p>Politics = lucha electoral y representación. Policy = acción concreta del Estado en un área específica.</p>
+      <div class="author">Valles / Califano</div>
+    </div>
+    <div class="concept-card c1">
+      <div class="card-label">Ciclo de políticas</div>
+      <h4>4 etapas</h4>
+      <p>Iniciación → Elaboración → Implantación → Evaluación y sucesión.</p>
+      <div class="author">Valles</div>
+    </div>
+    <div class="concept-card c5">
+      <div class="card-label">Modelos de decisión</div>
+      <h4>4 modelos (Lowi)</h4>
+      <p>Racionalidad radical (optimizar) · Limitada (satisfacer) · Incremental (ajuste mutuo) · Garbage can (casualidad).</p>
+      <div class="author">Valles</div>
+    </div>
+    <div class="concept-card c3">
+      <div class="card-label">Tipos de política</div>
+      <h4>Categorías de Lowi</h4>
+      <p>Regulativas · Distributivas · Redistributivas · Institucionales. Las regulativas imponen condiciones a todos.</p>
+      <div class="author">Valles</div>
+    </div>
+    <div class="concept-card c4">
+      <div class="card-label">Escuelas</div>
+      <h4>Pluralista vs. Crítica</h4>
+      <p>Pluralista: poder disperso, consenso posible. Crítica: poder desigual, regulaciones favorecen a los dominantes.</p>
+      <div class="author">Califano</div>
+    </div>
+  </div>
+</section>
+
+<!-- U2 -->
+<section id="u2">
+  <div class="section-header">
+    <span class="section-num u2">U2</span>
+    <h2 class="section-title">Historia argentina y debate internacional</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item danger">
+      <div class="tl-year">1980 — Videla</div>
+      <div class="tl-law">Ley 22.285</div>
+      <div class="tl-desc">COMFER con militares. Excluye sin fines de lucro. Art. 114 renueva licencias automáticamente. Rige hasta 2009.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1989 — Menem</div>
+      <div class="tl-law">Ley 23.696 — Reforma del Estado</div>
+      <div class="tl-desc">Privatiza canales 11 y 13. Nace Telefé (Atlántida) y Clarín TV. Habilita multimedios.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2005 — Kirchner</div>
+      <div class="tl-law">Decreto 527/05</div>
+      <div class="tl-desc">"Ficción jurídica": suspende el cómputo de licencias por 10 años. A pedido de las patronales. Profundiza concentración.</div>
+    </div>
+    <div class="tl-item highlight">
+      <div class="tl-year">2009 — CFK</div>
+      <div class="tl-law">LSCA 26.522</div>
+      <div class="tl-desc">Los tres tercios (estatal/privado/sin fines de lucro). AFSCA plural. Defensor del Público. Cuotas de producción. Fútbol para Todos.</div>
+    </div>
+    <div class="tl-item danger">
+      <div class="tl-year">2015 — Macri (19 días después)</div>
+      <div class="tl-law">DNU 267/15</div>
+      <div class="tl-desc">Cable = TIC (sin topes). Elimina art. 161. ENACOM con mayoría oficialista. Habilita megafusión Cablevisión-Telecom 2018.</div>
+    </div>
+  </div>
+
+  <br>
+  <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.2rem;font-size:1.1rem;">NOMIC → MacBride → CMSI</h3>
+  <div class="nomic-flow">
+    <div class="nomic-node">
+      <div class="year">Años 70</div>
+      <h5>NOMIC / MPNA</h5>
+      <p>Países No Alineados piden flujo equilibrado. Cuestionan dominio de AP, UPI, Reuters, AFP.</p>
+    </div>
+    <div class="nomic-arrow">→</div>
+    <div class="nomic-node">
+      <div class="year">1980</div>
+      <h5>Informe MacBride</h5>
+      <p>UNESCO Belgrado. Comunicar = derecho humano. EEUU y UK se retiran de la UNESCO en 1984.</p>
+    </div>
+    <div class="nomic-arrow">→</div>
+    <div class="nomic-node">
+      <div class="year">2003–2005</div>
+      <h5>CMSI</h5>
+      <p>UNESCO → UIT. Desequilibrio informativo → "brecha digital". Lógica de mercado dominante.</p>
+    </div>
+  </div>
+</section>
+
+<!-- U3 -->
+<section id="u3">
+  <div class="section-header">
+    <span class="section-num u3">U3</span>
+    <h2 class="section-title">Concentración e industrias culturales</h2>
+  </div>
+
+  <div class="conc-grid">
+    <div class="conc-card conc-econ">
+      <h5>Dimensión económica</h5>
+      <p>Eficiencia de mercado. CR4 supera el 80% en América Latina. Fusiones y economías de escala.</p>
+    </div>
+    <div class="conc-card conc-simb">
+      <h5>Dimensión simbólica</h5>
+      <p>Específica de bienes culturales. Reduce fuentes informativas. Homogeneiza géneros. Amenaza pluralismo y democracia.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin:1.5rem 0 1rem;font-size:1.1rem;">Plataformas: ¿son medios? — Napoli & Caplan</h3>
+  <div class="plat-cols">
+    <div class="plat-col excusas">
+      <h5>Sus 3 excusas</h5>
+      <div class="plat-item">"No producimos contenido propio"</div>
+      <div class="plat-item">"Somos ingenieros, no editores"</div>
+      <div class="plat-item">"No hay intervención editorial humana"</div>
+    </div>
+    <div class="plat-col rebate">
+      <h5>Las 3 refutaciones</h5>
+      <div class="plat-item">La distribución siempre fue definitoria de los medios (ej: TV cable)</div>
+      <div class="plat-item">La radiodifusión siempre fue campo de tecnólogos (RCA, Marconi)</div>
+      <div class="plat-item">Argumento clave: compiten por ingresos publicitarios igual que la TV</div>
+    </div>
+  </div>
+</section>
+
+<!-- U4 -->
+<section id="u4">
+  <div class="section-header">
+    <span class="section-num u4">U4</span>
+    <h2 class="section-title">Marcos regulatorios comparados</h2>
+  </div>
+
+  <div class="phases">
+    <div class="phase-card ph1">
+      <div class="pnum">Fase I — hasta 1945</div>
+      <h4>Industria emergente</h4>
+      <p>Reglas ad hoc. Separación por tecnología (prensa / teleco / radio). Lógica técnica y comercial.</p>
+    </div>
+    <div class="phase-card ph2">
+      <div class="pnum">Fase II — 1945–1980</div>
+      <h4>Servicio público</h4>
+      <p>Posguerra. Lógica normativa y sociopolítica. BBC, RAI. Radiodifusión como bien público.</p>
+    </div>
+    <div class="phase-card ph3">
+      <div class="pnum">Fase III — desde Reagan</div>
+      <h4>Nuevo paradigma</h4>
+      <p>Mercado + convergencia. Privatización y desregulación. Lógica económica y tecnológica.</p>
+    </div>
+  </div>
+
+  <br>
+  <div class="concept-grid">
+    <div class="concept-card c4">
+      <div class="card-label">Hallin & Mancini</div>
+      <h4>Modelo liberal</h4>
+      <p>Libre mercado, mínima intervención. EEUU, GB, Irlanda.</p>
+    </div>
+    <div class="concept-card c4">
+      <div class="card-label">Hallin & Mancini</div>
+      <h4>Dem. Corporativista</h4>
+      <p>Medios comerciales + grupos sociales. Rol estatal moderado. Norte de Europa.</p>
+    </div>
+    <div class="concept-card c4">
+      <div class="card-label">Hallin & Mancini</div>
+      <h4>Pluralista Polarizado</h4>
+      <p>Medios vinculados a partidos, fuerte rol estatal. Sur de Europa / América Latina.</p>
+    </div>
+    <div class="concept-card c2">
+      <div class="card-label">Flew</div>
+      <h4>Estado-nación persiste</h4>
+      <p>Rechaza la "tesis del Estado en desaparición". Los medios convergen tecnológicamente pero las políticas divergen.</p>
+    </div>
+    <div class="concept-card c1">
+      <div class="card-label">Puppis</div>
+      <h4>Regulación vs. Gobernanza</h4>
+      <p>Regulación = norma legal específica. Gobernanza = conjunto total de mecanismos formales e informales.</p>
+    </div>
+    <div class="concept-card c5">
+      <div class="card-label">McQuail</div>
+      <h4>6 aspectos regulados</h4>
+      <p>Estructura · Infraestructura · Distribución · Acceso · Conducta · Contenidos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEYES -->
+<section id="leyes">
+  <div class="section-header">
+    <span class="section-num leyes">leyes</span>
+    <h2 class="section-title">Tabla de leyes y decretos</h2>
+  </div>
+  <table class="law-table">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Gobierno</th>
+        <th>Qué hace</th>
+        <th>Clave para recordar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="law-num">22.285</span></td>
+        <td><span class="pres">Videla / 1980</span></td>
+        <td>Primera ley sistemática de radiodifusión. COMFER con militares. Excluye sin fines de lucro.</td>
+        <td>Art. 114 renueva licencias automáticamente. Rige hasta 2009.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">23.696</span></td>
+        <td><span class="pres">Menem / 1989</span></td>
+        <td>Ley de Reforma del Estado. Privatiza canales 11 y 13. Habilita multimedios.</td>
+        <td>Canal 11 → Telefé (Atlántida). Canal 13 → Clarín.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">25.750</span></td>
+        <td><span class="pres">Duhalde / 2003</span></td>
+        <td>"Ley Clarín". Tope 30% capital extranjero. Excluye medios del cram down.</td>
+        <td>Protege exactamente los negocios del Grupo Clarín.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">Dto. 527/05</span></td>
+        <td><span class="pres">Kirchner / 2005</span></td>
+        <td>Suspende el cómputo de licencias por 10 años.</td>
+        <td>"Ficción jurídica". A pedido de las patronales. Profundiza concentración.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">26.522</span></td>
+        <td><span class="pres">CFK / 2009</span></td>
+        <td>LSCA. Tres tercios del espectro. AFSCA plural. Defensor del Público. Fútbol para Todos.</td>
+        <td>Fallo CSJN 2013 la declara constitucional. Grupo Clarín la impugna judicialmente.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">27.078</span></td>
+        <td><span class="pres">CFK / 2014</span></td>
+        <td>Argentina Digital. TIC como servicio público. Neutralidad de red.</td>
+        <td>Nunca llegó a reglamentarse. DNU 267/15 la deroga en parte.</td>
+      </tr>
+      <tr>
+        <td><span class="law-num">DNU 267/15</span></td>
+        <td><span class="pres">Macri / dic. 2015</span></td>
+        <td>Desmonta la LSCA. Cable = TIC (sin topes). Crea ENACOM con mayoría oficialista.</td>
+        <td>A 19 días de asumir. Elimina el art. 161 (plazo de adecuación).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- DISTINCIONES -->
+<section id="distinciones">
+  <div class="section-header">
+    <span class="section-num">pares</span>
+    <h2 class="section-title">Distinciones que siempre confunden</h2>
+  </div>
+
+  <div class="distinction">
+    <div class="dist-side a">
+      <h5>Acceso (UNESCO 1977)</h5>
+      <p>Poder recibir materiales de comunicación y retroalimentar (comentar, criticar, interactuar con productores).</p>
+    </div>
+    <div class="dist-side b">
+      <h5>Participación (UNESCO 1977)</h5>
+      <p>Producir mensajes · intervenir en decisiones · formular políticas de comunicación. Es un escalón más alto que el acceso.</p>
+    </div>
+  </div>
+
+  <div class="distinction">
+    <div class="dist-side a">
+      <h5>Medios estatales</h5>
+      <p>Controlados por el poder ejecutivo. Usados históricamente como voceros gubernamentales en Argentina.</p>
+    </div>
+    <div class="dist-side b">
+      <h5>Medios públicos</h5>
+      <p>Sirven a la ciudadanía. Incluyen comunitarios, universitarios. El ideal del servicio público europeo.</p>
+    </div>
+  </div>
+
+  <div class="distinction">
+    <div class="dist-side a">
+      <h5>Free speech tradition</h5>
+      <p>Solo exige que el Estado no censure. Protege al individuo pero no garantiza pluralismo.</p>
+    </div>
+    <div class="dist-side b">
+      <h5>Derecho humano a comunicar</h5>
+      <p>Impone obligaciones positivas al Estado: garantizar diversidad, acceso y pluralismo. Loreti & Lozano.</p>
+    </div>
+  </div>
+
+  <div class="distinction">
+    <div class="dist-side a">
+      <h5>Regulación (Puppis/Freedman)</h5>
+      <p>Instrumentos legales específicos para alcanzar objetivos de política en medios.</p>
+    </div>
+    <div class="dist-side b">
+      <h5>Gobernanza de medios</h5>
+      <p>Suma total de mecanismos formales e informales, nacionales y supranacionales, que organizan los sistemas mediáticos.</p>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>Políticas de Comunicación — Material de estudio</p>
+  <p><strong>Miércoles</strong> — parcial escrito · precisión y desarrollo</p>
+</footer>
+
+<script>
+function showSong(i) {
+  document.querySelectorAll('.song-panel').forEach((p, idx) => p.classList.toggle('visible', idx === i));
+  document.querySelectorAll('.song-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+}
+
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
