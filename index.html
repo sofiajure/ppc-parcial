@@ -106,6 +106,7 @@ section {
 .section-num.u4 { background: var(--accent5); }
 .section-num.songs { background: var(--accent4); }
 .section-num.leyes { background: var(--accent2); }
+.section-num.cuentos { background: #e060b0; }
 .section-title {
   font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
 }
@@ -303,6 +304,133 @@ section {
   border-radius: 6px; margin-bottom: 6px; line-height: 1.5;
 }
 
+/* ==============================
+   CUENTOS SECTION
+   ============================== */
+.cuento-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem;
+}
+.cuento-tab {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  padding: 6px 14px; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  cursor: pointer; transition: all .2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.cuento-tab:hover { border-color: #e060b0; color: #e060b0; }
+.cuento-tab.active { background: #e060b0; border-color: #e060b0; color: #fff; font-weight: 500; }
+
+.cuento-panel { display: none; }
+.cuento-panel.visible { display: block; }
+
+.cuento-header {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.cuento-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  padding: 0.6rem;
+  background: var(--surface2);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.cuento-header-text h3 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.4rem; margin-bottom: 4px;
+  color: var(--text);
+}
+.cuento-header-text .cuento-autor {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: #e060b0; letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cuento-header-text .cuento-subtitulo {
+  font-size: 13px; color: var(--muted); font-style: italic;
+}
+
+/* Story body */
+.cuento-body {
+  display: flex; flex-direction: column; gap: 0;
+}
+.cuento-bloque {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.cuento-bloque:last-child { border-bottom: none; }
+
+.cuento-bloque-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.bloque-emoji {
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.bloque-titulo {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cuento-texto {
+  font-size: 14px; color: #c8c6d8;
+  line-height: 1.85;
+}
+.cuento-texto p { margin-bottom: 1em; }
+.cuento-texto p:last-child { margin-bottom: 0; }
+
+/* Highlighted concept callouts inside cuentos */
+.cuento-callout {
+  background: var(--surface2);
+  border-left: 3px solid #e060b0;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin: 14px 0;
+  font-size: 13px; color: var(--muted);
+}
+.cuento-callout strong { color: #e060b0; }
+
+.cuento-callout.verde { border-left-color: var(--accent1); }
+.cuento-callout.verde strong { color: var(--accent1); }
+.cuento-callout.azul { border-left-color: var(--accent3); }
+.cuento-callout.azul strong { color: var(--accent3); }
+.cuento-callout.rojo { border-left-color: var(--accent2); }
+.cuento-callout.rojo strong { color: var(--accent2); }
+.cuento-callout.naranja { border-left-color: var(--accent4); }
+.cuento-callout.naranja strong { color: var(--accent4); }
+
+/* Key term highlight inline */
+.kt { color: #e8e6f0; font-weight: 500; }
+.kt.g { color: var(--accent1); } /* green */
+.kt.a { color: var(--accent3); } /* blue */
+.kt.r { color: var(--accent2); } /* red */
+.kt.o { color: var(--accent4); } /* orange */
+.kt.p { color: #e060b0; } /* pink */
+
+/* Small inline author tag */
+.inline-autor {
+  font-size: 11px; font-style: italic; color: var(--muted);
+  margin-left: 4px;
+}
+
+/* Datos rápidos strip */
+.datos-strip {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 14px;
+}
+.dato-chip {
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  padding: 4px 10px; border-radius: 20px;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--muted);
+}
+.dato-chip strong { color: var(--text); }
+
 /* FOOTER */
 footer {
   max-width: 860px; margin: 0 auto;
@@ -318,6 +446,7 @@ footer strong { color: var(--accent1); }
   .nomic-flow { flex-direction: column; }
   .nomic-arrow { transform: rotate(90deg); }
   .hero h1 { font-size: 2rem; }
+  .cuento-header { flex-direction: column; }
 }
 </style>
 </head>
@@ -325,6 +454,7 @@ footer strong { color: var(--accent1); }
 
 <nav id="nav">
   <a href="#canciones" class="active">Canciones</a>
+  <a href="#cuentos">📖 Cuentos</a>
   <a href="#u1">U1 Estado</a>
   <a href="#u2">U2 Argentina</a>
   <a href="#u3">U3 Concentración</a>
@@ -336,10 +466,11 @@ footer strong { color: var(--accent1); }
 <div class="hero">
   <span class="hero-label">Material de estudio</span>
   <h1>Políticas de Comunicación</h1>
-  <p>Canciones, mapas conceptuales y guías rápidas para el parcial del miércoles</p>
+  <p>Canciones, cuentos y mapas conceptuales para el parcial del miércoles</p>
   <div class="hero-meta">
     <span><strong>4</strong> unidades</span>
     <span><strong>4</strong> canciones</span>
+    <span><strong>5</strong> cuentos</span>
     <span><strong>+30</strong> conceptos clave</span>
     <span><strong>miércoles</strong> parcial</span>
   </div>
@@ -565,6 +696,455 @@ footer strong { color: var(--accent1); }
   </div>
 </section>
 
+<!-- CUENTOS -->
+<section id="cuentos">
+  <div class="section-header">
+    <span class="section-num cuentos">cuentos</span>
+    <h2 class="section-title">Los textos como relatos</h2>
+  </div>
+
+  <div class="cuento-tabs">
+    <button class="cuento-tab active" onclick="showCuento(0)">🏗️ Graziano</button>
+    <button class="cuento-tab" onclick="showCuento(1)">📡 Mastrini — Medios públicos</button>
+    <button class="cuento-tab" onclick="showCuento(2)">🌍 Mastrini & De Charras</button>
+    <button class="cuento-tab" onclick="showCuento(3)">🗺️ Exeni</button>
+    <button class="cuento-tab" onclick="showCuento(4)">🌹 Marea rosa</button>
+  </div>
+
+  <!-- CUENTO 1: GRAZIANO -->
+  <div class="cuento-panel visible" id="cuento0">
+    <div class="cuento-header">
+      <div class="cuento-icon">🏗️</div>
+      <div class="cuento-header-text">
+        <div class="cuento-autor">Graziano · Guía teórica + Política o Ley</div>
+        <h3>El largo camino de la denuncia a la política</h3>
+        <div class="cuento-subtitulo">De Pasquali en 1964 a la Argentina de Alfonsín en 1988</div>
+      </div>
+    </div>
+    <div class="cuento-body">
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🔬</span>
+          <span class="bloque-titulo">El punto de partida — Pasquali, 1964</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Era 1964 y en Caracas un filósofo venezolano llamado Antonio Pasquali publicó un libro que cambiaría todo. Hasta ese momento, los investigadores de comunicación miraban los mensajes o los efectos en la audiencia. Pasquali dijo: están mirando para el lado equivocado. Lo que importa es quién emite. Y quien emite tiene dueño. Y ese dueño tiene poder económico. Ahí está el verdadero problema.</p>
+          <div class="cuento-callout verde"><strong>Desmontaje del emisor:</strong> no preguntarse qué dice el mensaje sino quién lo produce, con qué capital, vinculado a qué intereses. Inaugura la sociopolítica de las comunicaciones en América Latina.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📢</span>
+          <span class="bloque-titulo">Primera etapa — El diagnóstico furioso</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Durante los años 60 y principios de los 70, los investigadores latinoamericanos se dedicaron a denunciar. El diagnóstico era claro: los medios estaban <span class="kt g">concentrados en pocas manos privadas</span>, esas manos tenían vínculos con el poder económico y político, y el "libre flujo de la información" era una pantalla ideológica para que las agencias transnacionales norteamericanas inundaran la región con su versión del mundo.</p>
+          <p>El Estado en ese momento era visto como cómplice. No había mucho más que decir: el Estado era instrumento de la clase dominante, punto.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">⚡</span>
+          <span class="bloque-titulo">El giro — El Estado como campo de batalla</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Pero a principios de los 70 algo cambió. Llegaron Gramsci, llegaron las experiencias de Allende en Chile, de Velasco en Perú, del peronismo en Argentina. Y los investigadores empezaron a pensar distinto: el Estado no es solo un instrumento de dominación. Es también un espacio de disputa, con grietas, con contradicciones internas, con funcionarios que pueden ser presionados.</p>
+          <div class="cuento-callout azul"><strong>Intersticios:</strong> grietas dentro del aparato estatal donde sectores progresistas pueden instalarse. El Estado deja de ser enemigo irreformable y pasa a ser terreno de disputa.</div>
+          <p>Si hay intersticios, entonces tiene sentido reclamarle al Estado que intervenga en los medios. No como dueño autoritario, sino como regulador que ponga racionalidad donde solo hay lógica de mercado. Esa fue la apuesta de las <span class="kt p">Políticas Nacionales de Comunicación</span>.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📋</span>
+          <span class="bloque-titulo">La etapa formalista — Pedir que el Estado exista</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Entre 1973 y 1977 el reclamo era modesto pero revolucionario: que el Estado tuviera políticas de comunicación. Que dijera algo. Que no dejara todo librado al mercado.</p>
+          <p>La sola idea de que el Estado pudiera tener algo que decir en ese campo era, de hecho, una impugnación al orden establecido. Los sectores privados siempre usaron el mismo argumento: cualquier intervención del Estado en los medios es censura, es el comienzo del totalitarismo.</p>
+          <div class="cuento-callout rojo"><strong>La respuesta de Graziano:</strong> el Estado ya interviene, siempre intervino. Otorga licencias sobre un espectro que le pertenece por derecho internacional. La pregunta no es <em>si</em> el Estado debe intervenir. La pregunta es <em>a favor de quién</em> interviene y con qué objetivos.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📜</span>
+          <span class="bloque-titulo">Argentina, 1984–1988 — El argumento central</span>
+        </div>
+        <div class="cuento-texto">
+          <p>La Guía Teórica la escribió Graziano en 1984, cuando Argentina recuperaba la democracia. El texto "Política o Ley" lo escribió en 1988, cuando el gobierno de Alfonsín enviaba al Congreso un proyecto de ley de radiodifusión.</p>
+          <p>Y ahí está el nudo de todo su pensamiento: <span class="kt g">no alcanza con una ley</span>. Una ley es el carro delante de los bueyes. Primero hay que tener claros los objetivos, las políticas, el diagnóstico. Después viene la norma que los instrumenta.</p>
+        </div>
+        <div class="datos-strip">
+          <span class="dato-chip">📺 Sistema <strong>competitivo</strong> → homogeneización</span>
+          <span class="dato-chip">📻 Sistema <strong>complementario</strong> → diversidad real</span>
+          <span class="dato-chip">🏢 Concentración <strong>horizontal</strong> + <strong>vertical</strong> + <strong>ampliada</strong></span>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">⏳</span>
+          <span class="bloque-titulo">El final abierto</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Graziano termina sus textos sin victoria. La ley que se discutía en 1988 no llegó a promulgarse. La que heredó de la dictadura siguió vigente. Los medios siguieron concentrándose.</p>
+          <p>Habría que esperar hasta <span class="kt g">2009</span> para que Argentina aprobara la LSCA, con la reserva del tercio del espectro para medios sin fines de lucro. Veintiún años después de que Graziano escribiera que el debate ya estaba abierto.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CUENTO 2: MASTRINI MEDIOS PÚBLICOS -->
+  <div class="cuento-panel" id="cuento1">
+    <div class="cuento-header">
+      <div class="cuento-icon">📡</div>
+      <div class="cuento-header-text">
+        <div class="cuento-autor">Mastrini · Medios públicos</div>
+        <h3>De la BBC al canal Encuentro</h3>
+        <div class="cuento-subtitulo">La historia del servicio público de radiodifusión: de la posguerra europea a América Latina hoy</div>
+      </div>
+    </div>
+    <div class="cuento-body">
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🏛️</span>
+          <span class="bloque-titulo">Europa de posguerra — El modelo nace</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Después de la Segunda Guerra Mundial, Europa tenía que reconstruir también la confianza ciudadana en sus instituciones después de años de propaganda nazi y fascista. Varios países tomaron una decisión que parecía obvia: la radio y la televisión no podían quedar en manos del mercado ni del gobierno. Tenían que ser públicas, independientes, financiadas por los propios ciudadanos.</p>
+          <div class="cuento-callout azul"><strong>Misión del servicio público:</strong> informar, educar, entretener. Para todos. Sin importar dónde vivieran ni cuánta plata tuvieran.</div>
+          <p>El <span class="kt a">canon</span> —ese pago anual de los ciudadanos que no era una suscripción sino una contribución al bien común— aseguraba que nadie pudiera comprar la línea editorial. Ni el mercado ni el gobierno.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">⚠️</span>
+          <span class="bloque-titulo">América Latina — La confusión original</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Mientras Europa construía ese modelo, América Latina tomó otro camino. Donde existieron medios estatales, no fueron medios públicos: fueron bocinas del gobierno de turno.</p>
+          <div class="cuento-callout rojo"><strong>La distinción clave:</strong> un <em>medio estatal</em> es del Estado, lo controla el ejecutivo y habla a favor del gobierno. Un <em>medio público</em> es de la sociedad, tiene independencia editorial y habla para todos los ciudadanos. En América Latina tuvimos lo primero y casi nunca lo segundo.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🤺</span>
+          <span class="bloque-titulo">El debate latinoamericano — Dos posturas</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Los investigadores latinoamericanos se dividieron. <strong>Gonzaga Motta y Ubirajara da Silva</strong> (Brasil): no hay que perder el tiempo reclamándole al Estado medios públicos porque siempre va a usarlos para su beneficio. Mejor apostar por los medios alternativos y comunitarios.</p>
+          <p><strong>Pasquali</strong> (Venezuela): hay que defender los medios públicos pero bien diseñados. Con doble independencia: económica del mercado <em>y</em> política del gobierno. Si el medio público queda absorbido por el gobierno deja de ser público, pero eso no es razón para abandonar la idea sino para diseñarla mejor.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">💥</span>
+          <span class="bloque-titulo">Los años 80 — El neoliberalismo llega a Europa</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Con Reagan y Thatcher, el neoliberalismo llegó con su argumento: el mercado lo hace todo mejor. Se abrió la competencia, entraron los canales privados, y los medios públicos de repente tuvieron que pelear por audiencia. La crisis fue doble: de legitimidad y económica.</p>
+          <p>Pero los medios públicos europeos sobrevivieron. Y los documentos oficiales europeos los respaldaron con un argumento nuevo y mejor que la escasez de frecuencias:</p>
+          <div class="cuento-callout verde"><strong>Protocolo 32 del Tratado de Ámsterdam (1997):</strong> los medios públicos no existen porque el espectro es escaso. Existen porque la democracia los necesita, la cohesión social los necesita y la diversidad cultural los necesita. Esa justificación no desaparece con la digitalización.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🌐</span>
+          <span class="bloque-titulo">El siglo XXI — La batalla digital</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Llegó internet y el sector privado vio su oportunidad: si hay canales infinitos, ¿para qué financiar medios públicos? El argumento de la escasez de frecuencias ya no servía. Los privados presionaron para que en la transición al digital los medios públicos no pudieran ofrecer contenido gratis en las nuevas plataformas.</p>
+          <p>En España, por ejemplo, los medios públicos pasaron del 50% del espectro analógico al 20% del digital.</p>
+        </div>
+        <div class="datos-strip">
+          <span class="dato-chip">🇧🇷 Brasil → Foro Nacional + Intervozes</span>
+          <span class="dato-chip">🇦🇷 Argentina → 21 puntos → LSCA 2009</span>
+          <span class="dato-chip">🌎 Telesur → 2005 (multiestatal)</span>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🚨</span>
+          <span class="bloque-titulo">La advertencia final</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Mastrini cierra con una advertencia: si las sociedades latinoamericanas no construyen una estrategia temprana para que los medios públicos ocupen un lugar real en el entorno digital, va a pasar lo mismo que con la TV analógica: la digitalización solo va a profundizar el modelo comercial.</p>
+          <p>La tecnología no define por sí sola quién habla y quién no. Eso lo definen las políticas. Y las políticas las definen los actores con poder para imponerlas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CUENTO 3: MASTRINI & DE CHARRAS -->
+  <div class="cuento-panel" id="cuento2">
+    <div class="cuento-header">
+      <div class="cuento-icon">🌍</div>
+      <div class="cuento-header-text">
+        <div class="cuento-autor">Mastrini & De Charras</div>
+        <h3>20 años no es nada: del NOMIC a la Sociedad de la Información</h3>
+        <div class="cuento-subtitulo">Cómo renombraron el mismo problema para vaciarlo de política</div>
+      </div>
+    </div>
+    <div class="cuento-body">
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📰</span>
+          <span class="bloque-titulo">Argel, 1973 — La denuncia</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Los jefes de Estado de los Países No Alineados dijeron algo que parecía obvio pero que nadie había dicho tan fuerte: la información que recibimos del mundo, incluso la de lo que pasa en nuestros propios países, nos llega procesada por cuatro agencias del norte. <span class="kt o">AP, UPI, Reuters, AFP</span>. Nosotros no contamos nuestra historia. Nos la cuentan ellos.</p>
+          <div class="cuento-callout naranja"><strong>Libre flujo ≠ flujo equilibrado:</strong> en un sistema asimétrico, libertad de flujo significa que los países centrales emiten y los periféricos reciben. Equilibrado implica redistribuir ese poder.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📜</span>
+          <span class="bloque-titulo">MacBride, 1980 — La cima y el principio del fin</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Todo confluyó en Belgrado en 1980, cuando la UNESCO aprobó el <span class="kt a">Informe MacBride: Un solo mundo, voces múltiples</span>. El documento más ambicioso que había producido un organismo supranacional sobre democratización de la comunicación. Fue también el principio del fin.</p>
+          <p>Reagan acababa de llegar a la Casa Blanca. Thatcher gobernaba el Reino Unido. Acusaron a la UNESCO de haberse politizado al servicio del bloque soviético. En 1984 y 1985 respectivamente se <span class="kt r">retiraron del organismo</span>, llevándose una porción enorme del presupuesto. La UNESCO quedó vaciada.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">💸</span>
+          <span class="bloque-titulo">Los 80 — Mientras tanto, el mundo no se detuvo</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Tres procesos ocurrían simultáneamente. <strong>Primero</strong>, el neoliberalismo avanzaba sobre los medios: si en los 80 la compra de ABC costó 340 millones de dólares, en los 90 la fusión CBS-Viacom involucró 37.000 millones. Los medios se concentraban a velocidad exponencial.</p>
+          <p><strong>Segundo</strong>, la tecnología se convertía en ideología. Toffler, Negroponte, McLuhan: cada uno prometía que la tecnología democratizaría el mundo, eliminaría las jerarquías, conectaría a todos en igualdad.</p>
+          <p><strong>Tercero</strong>, internet nacía en secreto: en 1969 como ARPANET militar, expandiéndose hasta que en 1994 <span class="kt o">Al Gore viajó a Buenos Aires</span> para presentar las "autopistas de la información".</p>
+          <div class="cuento-callout naranja"><strong>La trampa de Gore:</strong> prometió el ágora ateniense del siglo XXI, pero sus cinco principios eran: inversión privada, competencia, acceso abierto, regulación flexible y acceso universal. Como la Atenas de Pericles: democracia proclamada, minoría que la ejerce.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🔄</span>
+          <span class="bloque-titulo">CMSI 2003-2005 — Los desplazamientos conceptuales</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Veinte años después de Belgrado, volvía a haber un debate multilateral. Pero todo había cambiado. La UNESCO fue reemplazada por la <span class="kt r">UIT</span> como organizadora: un organismo técnico cuyos órganos consultivos incluían a Siemens, Motorola, Bell, Alcatel, Ericsson y AT&amp;T.</p>
+          <p>Y los conceptos fueron renombrados uno a uno:</p>
+        </div>
+        <div class="datos-strip">
+          <span class="dato-chip">NOMIC → <strong>Sociedad de la Información</strong></span>
+          <span class="dato-chip">Desequilibrio informativo → <strong>Brecha digital</strong></span>
+          <span class="dato-chip">Acceso y participación → <strong>Acceso digital</strong></span>
+          <span class="dato-chip">PIDC → <strong>Fondo de Solidaridad Digital</strong></span>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">💡</span>
+          <span class="bloque-titulo">Lo que quedó — La lección central</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Pero los autores no terminan en la denuncia pura. La sociedad civil apareció por primera vez como actor relevante. Las organizaciones civiles lograron articular posiciones comunes sobre derechos humanos, medios comunitarios, software libre, diversidad cultural.</p>
+          <p>La hipótesis de fondo: la frustración del proceso MacBride es una lección, no una derrota definitiva. El debate sigue siendo político. El cambio de nombre de los conceptos <span class="kt r">no es inocente</span>: es parte de la batalla.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CUENTO 4: EXENI -->
+  <div class="cuento-panel" id="cuento3">
+    <div class="cuento-header">
+      <div class="cuento-icon">🗺️</div>
+      <div class="cuento-header-text">
+        <div class="cuento-autor">Exeni · Políticas de comunicación: andares y señales</div>
+        <h3>El atrevimiento latinoamericano</h3>
+        <div class="cuento-subtitulo">Por qué las PNC fracasaron y por qué no hay que renunciar a la utopía</div>
+      </div>
+    </div>
+    <div class="cuento-body">
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🌱</span>
+          <span class="bloque-titulo">El giro — El Estado como campo de batalla</span>
+        </div>
+        <div class="cuento-texto">
+          <p>La tradición marxista clásica veía al Estado como instrumento de la clase dominante. Pero a principios de los 70, influenciada por Gramsci y por experiencias concretas, la investigación latinoamericana empezó a ver al Estado como un espacio de disputa donde distintos actores pueden ejercer presión y conquistar posiciones.</p>
+          <div class="cuento-callout verde"><strong>Consecuencia:</strong> una vez que el Estado deja de verse como enemigo irreformable, se abre la posibilidad de reclamarle que regule e intervenga en comunicación a favor del interés público.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🎓</span>
+          <span class="bloque-titulo">Bogotá, 1974 — Los expertos se reúnen</span>
+        </div>
+        <div class="cuento-texto">
+          <p>La UNESCO convocó a <span class="kt a">17 especialistas de 14 países</span> en Bogotá para preparar la gran conferencia intergubernamental. Luis Ramiro Beltrán presentó un documento de 100 párrafos que definía por primera vez qué eran las PNC.</p>
+          <p>Las recomendaciones: PNC globales, explícitas, interdisciplinarias. Superación de la falacia que equiparaba libertad de expresión con libertad de empresa. Defensa de las culturas nacionales. Participación de todos los sectores sociales.</p>
+          <div class="cuento-callout rojo"><strong>El documento desapareció:</strong> se convirtió rápidamente en el "fantasma de las organizaciones patronales de medios" y fue eliminado como material preparatorio de la conferencia antes de que esta se realizara.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🇨🇷</span>
+          <span class="bloque-titulo">Costa Rica, 1976 — El momento más alto y la derrota</span>
+        </div>
+        <div class="cuento-texto">
+          <p>La Primera Conferencia Intergubernamental sobre Políticas de Comunicación en América Latina se realizó en San José en julio de 1976. Era el momento de traducir todo el debate teórico en compromisos políticos reales.</p>
+          <p>El contexto no podía ser peor: con excepción de México, Costa Rica, Venezuela y Colombia, todos los demás países eran dictaduras. Solo <span class="kt r">cuatro ministros</span> en total. El resto eran viceministros o embajadores locales, sin poder de decisión.</p>
+          <p>Y la SIP y la AIR orquestaban desde afuera una campaña feroz: inundaron la prensa, confundieron los debates, boicotearon los documentos reales, lograron incluso que la ministra costarricense que encabezaba la iniciativa renunciara.</p>
+          <div class="cuento-callout rojo"><strong>Triple déficit del Espíritu de Costa Rica:</strong>
+            (a) de oportunidad → llegó tarde, cuando varios gobiernos ya habían dado marcha atrás;<br>
+            (b) de pertinencia → avanzó mal, sin representatividad política necesaria;<br>
+            (c) de legitimidad → nació desnaturalizado, bajo presión de SIP y AIR.
+          </div>
+          <p>Los documentos que sobrevivieron eran tan vagos que no obligaban a nada. Raquel Salinas los llamó <em>"fósiles de una historia que nadie conoce"</em>.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🏳️</span>
+          <span class="bloque-titulo">Los intentos concretos — Héroes y derrotas</span>
+        </div>
+        <div class="cuento-texto">
+          <p><strong>🇲🇽 México:</strong> el más ambicioso. En 1978 incorporaron el derecho a la información en la Constitución. La regulación que debía darle cuerpo fracasó por presión de los medios privados. El tema terminó archivado.</p>
+          <p><strong>🇵🇪 Perú:</strong> el más radical. Velasco Alvarado formuló la ley de radiodifusión más avanzada que había tenido América Latina. Expropió los grandes diarios. Fue revertido cuando cayó Velasco.</p>
+          <p><strong>🇻🇪 Venezuela:</strong> mayor claridad conceptual, cero efectos prácticos. El proyecto RATELVE fue relegado y truncado sin implementarse. Primera país en incorporar la comunicación en su Plan Quinquenal.</p>
+          <p><strong>🇧🇷 Brasil:</strong> la paradoja mayor: fue el primero en formular una PNC, pero lo hizo un <span class="kt r">gobierno militar conservador</span> en 1975. El Proyecto RADIOBRAS se frustró.</p>
+        </div>
+        <div class="datos-strip">
+          <span class="dato-chip">🇨🇱 Chile → borrado con el golpe</span>
+          <span class="dato-chip">🇨🇺 Cuba → sistema centralizado estatal</span>
+          <span class="dato-chip">🇳🇮 Nicaragua → monopolio estatal TV</span>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">💀</span>
+          <span class="bloque-titulo">La derrota final y el entierro del tema</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Después de San José el debate continuó, pero ya no en América Latina: Kuala Lumpur (Malasia) en 1979, Yaundé (Camerún) en 1980. El Informe MacBride dedicó una de sus conclusiones a las PNC. Y luego: se mandó a callar.</p>
+          <p>Los impulsores del movimiento no habían logrado arraigar la idea en los actores que podían sostenerla: los partidos políticos, los sindicatos, las fuerzas progresistas. Sin base social organizada, la idea de PNC democráticas quedó tendida en el camino.</p>
+          <p>La razón común en todos los casos fue siempre la misma: la oposición unánime de los propietarios privados usando el mismo argumento: <em>"cualquier intervención estatal en los medios es el comienzo del totalitarismo y el fin de la libertad de expresión"</em>.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🔥</span>
+          <span class="bloque-titulo">El final — La utopía que no se rinde</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Pero Exeni no termina en la derrota. El libro se llama <em>Políticas de comunicación: andares y señales para no renunciar a la utopía</em>. Y esa negativa a rendirse es el corazón del texto.</p>
+          <p>Lo que cambió, dice Exeni, son las condiciones. Las estrategias de acción deben adecuarse a esas nuevas condiciones en lugar de reeditar las formas de los 70 que ya mostraron sus límites. La pregunta que deja abierta es la misma que recorre todo el curso: ¿quién controla la palabra pública, en nombre de quién, y a favor de quién?</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CUENTO 5: MAREA ROSA -->
+  <div class="cuento-panel" id="cuento4">
+    <div class="cuento-header">
+      <div class="cuento-icon">🌹</div>
+      <div class="cuento-header-text">
+        <div class="cuento-autor">Badillo / Mastrini / Marenghi · La marea rosa</div>
+        <h3>Cuando la teoría crítica llegó al gobierno</h3>
+        <div class="cuento-subtitulo">Los gobiernos progresistas latinoamericanos y sus políticas de comunicación, 1998–2014</div>
+      </div>
+    </div>
+    <div class="cuento-body">
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🗳️</span>
+          <span class="bloque-titulo">El punto de partida — El fracaso del neoliberalismo</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Para entender por qué llegó la marea rosa hay que entender lo que dejó el Consenso de Washington. Durante los 90, casi todos los países latinoamericanos aplicaron la misma receta: privatizar, desregular, abrir los mercados, reducir el Estado. El resultado fue más pobreza, más desigualdad, más exclusión.</p>
+          <p>Y en ese clima de desencanto, empezaron a llegar al poder líderes y movimientos que prometían exactamente lo contrario: recuperar el Estado, redistribuir la riqueza, incluir a los excluidos.</p>
+        </div>
+        <div class="datos-strip">
+          <span class="dato-chip">🇻🇪 Chávez → 1998</span>
+          <span class="dato-chip">🇧🇷 Lula → 2003</span>
+          <span class="dato-chip">🇦🇷 Kirchner → 2003</span>
+          <span class="dato-chip">🇧🇴 Evo → 2006</span>
+          <span class="dato-chip">🇪🇨 Correa → 2007</span>
+          <span class="dato-chip">🇺🇾 Mujica → 2010</span>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">📚</span>
+          <span class="bloque-titulo">La teoría crítica finalmente en el gobierno</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Lo que hace interesante este momento para el curso es la conexión con todo lo anterior. Los argumentos que estos gobiernos usaron para justificar sus reformas venían directamente de la tradición crítica latinoamericana de los años 60 y 70: Pasquali, Beltrán, Mattelart, el Informe MacBride. Décadas de diagnóstico académico que nunca habían encontrado traducción política encontraron, de repente, gobiernos dispuestos a usarlos.</p>
+          <p>Los autores distinguen <span class="kt a">dos modelos</span>. Uno de <strong>convivencia pacífica</strong> (Chile, primer kirchnerismo, Brasil): reformas con discurso moderado. Otro de <strong>confrontación hegemónica</strong> (Venezuela, Ecuador, Bolivia, kirchnerismo post-2009): enfrentamiento directo con los grandes grupos mediáticos.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">⚖️</span>
+          <span class="bloque-titulo">Las reformas concretas — Tres frentes</span>
+        </div>
+        <div class="cuento-texto">
+          <p><strong>1. Regular los medios privados:</strong> casi todas las nuevas leyes incluyeron límites a la concentración. La más ambiciosa fue la <span class="kt g">LSCA argentina 2009</span>, con límites y plazo de adecuación apuntando directamente al Grupo Clarín. También cuotas de producción nacional.</p>
+          <p><strong>2. Potenciar los medios públicos:</strong> donde no había televisión pública se creó (TV Perú, Ecuador TV, Bolivia TV, TV Pública PY). Venezuela llegó a tener seis canales de televisión pública. Argentina creó RTA con cuatro señales. Se construyeron agencias de noticias propias para no depender de las transnacionales.</p>
+          <p><strong>3. Reservar espectro para medios comunitarios:</strong> Argentina, Ecuador, Uruguay y Bolivia establecieron el principio del <span class="kt p">tercio</span>: un tercio del espectro para medios privados comerciales, un tercio para medios públicos, un tercio para medios sin fines de lucro.</p>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">⚡</span>
+          <span class="bloque-titulo">La trampa — Activismo mediático vs. democratización genuina</span>
+        </div>
+        <div class="cuento-texto">
+          <p>Pero los autores señalan una tensión que atraviesa todas estas experiencias: la diferencia entre <span class="kt g">democratizar los medios</span> y <span class="kt r">usar los medios para consolidar poder político</span>.</p>
+          <p>Kitzberger lo llama <span class="kt a">activismo mediático</span> y describe tres dimensiones que se mezclan peligrosamente: el discurso que critica a los medios privados y mina su credibilidad, la estrategia de bypass mediático (cadenas nacionales obligatorias), y la regulación propiamente dicha.</p>
+          <div class="cuento-callout rojo"><strong>El caso venezolano extremo:</strong> la ley de comunicación comunitaria llegó a establecer explícitamente que los medios comunitarios debían estar comprometidos con el impulso al Poder Popular organizado en Consejos Comunales. La línea entre medio comunitario y brazo político del gobierno se borraba completamente.</div>
+        </div>
+      </div>
+
+      <div class="cuento-bloque">
+        <div class="cuento-bloque-header">
+          <span class="bloque-emoji">🔮</span>
+          <span class="bloque-titulo">El balance final — La historia fue mixta</span>
+        </div>
+        <div class="cuento-texto">
+          <p>La marea rosa había logrado lo que la academia no había podido en décadas: poner la democratización de la comunicación en la agenda política real.</p>
+          <p>Sabemos hoy que la historia fue mixta. Algunas reformas sobrevivieron. Otras fueron revertidas: el Grupo Clarín recuperó posiciones bajo el gobierno de Macri. En Venezuela el sistema mediático público se convirtió en lo que sus críticos temían. En Uruguay y Chile los cambios fueron más modestos pero más duraderos.</p>
+          <p>La conclusión que dejan los autores: las políticas de comunicación son siempre un <span class="kt p">acto político</span>. Su resultado depende no solo de las intenciones declaradas sino de las relaciones de poder que las rodean. El MacBride no se equivocó. Nunca se implementó. Y cada vez que alguien intenta implementarlo, la batalla recomienza.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
 <!-- U1 -->
 <section id="u1">
   <div class="section-header">
@@ -592,7 +1172,7 @@ footer strong { color: var(--accent1); }
     </div>
     <div class="concept-card c5">
       <div class="card-label">Modelos de decisión</div>
-      <h4>4 modelos (Lowi)</h4>
+      <h4>4 modelos</h4>
       <p>Racionalidad radical (optimizar) · Limitada (satisfacer) · Incremental (ajuste mutuo) · Garbage can (casualidad).</p>
       <div class="author">Valles</div>
     </div>
@@ -888,6 +1468,11 @@ footer strong { color: var(--accent1); }
 function showSong(i) {
   document.querySelectorAll('.song-panel').forEach((p, idx) => p.classList.toggle('visible', idx === i));
   document.querySelectorAll('.song-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+}
+
+function showCuento(i) {
+  document.querySelectorAll('.cuento-panel').forEach((p, idx) => p.classList.toggle('visible', idx === i));
+  document.querySelectorAll('.cuento-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
 }
 
 const navLinks = document.querySelectorAll('nav a');
