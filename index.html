@@ -30,7 +30,6 @@ body {
   min-height: 100vh;
 }
 
-/* NAV */
 nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(14,14,18,0.92);
@@ -50,7 +49,6 @@ nav a {
 nav a:hover { color: var(--text); background: var(--surface2); }
 nav a.active { color: var(--bg); background: var(--accent1); border-color: var(--accent1); }
 
-/* HERO */
 .hero {
   padding: 5rem 2rem 3rem;
   max-width: 860px; margin: 0 auto;
@@ -85,7 +83,6 @@ nav a.active { color: var(--bg); background: var(--accent1); border-color: var(-
 }
 .hero-meta strong { color: var(--accent1); }
 
-/* SECTIONS */
 section {
   max-width: 860px; margin: 0 auto;
   padding: 3rem 2rem;
@@ -104,56 +101,32 @@ section {
 .section-num.u2 { background: var(--accent3); }
 .section-num.u3 { background: var(--accent2); }
 .section-num.u4 { background: var(--accent5); }
-.section-num.songs { background: var(--accent4); }
 .section-num.leyes { background: var(--accent2); }
 .section-num.cuentos { background: #e060b0; }
 .section-title {
   font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
 }
 
-/* SONG TABS */
-.song-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.song-tab {
-  font-family: 'DM Mono', monospace; font-size: 12px;
-  padding: 6px 14px; border-radius: 6px;
-  border: 1px solid var(--border);
-  background: transparent; color: var(--muted);
-  cursor: pointer; transition: all .2s;
-}
-.song-tab:hover { border-color: var(--accent4); color: var(--accent4); }
-.song-tab.active { background: var(--accent4); border-color: var(--accent4); color: #000; font-weight: 500; }
-.song-panel { display: none; }
-.song-panel.visible { display: block; }
-.song-meta { margin-bottom: 1.5rem; }
-.song-meta h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
-.song-meta .cover { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
-.unit-badge {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  padding: 2px 8px; border-radius: 4px;
-  background: var(--surface2); color: var(--muted);
-  border: 1px solid var(--border);
-}
-.lyrics { display: flex; flex-direction: column; gap: 1.5rem; }
-.lyric-block { }
-.lyric-label {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 8px;
-}
-.lyric-line { line-height: 2.1; color: #ccc; }
-.lyric-line .key { color: var(--accent4); font-weight: 500; }
-.lyric-line .auth { font-size: 11px; color: var(--muted); font-style: italic; margin-left: 6px; }
-.lyric-divider { border: none; border-top: 1px solid var(--border); margin: .5rem 0; }
-.song-note {
-  margin-top: 1.5rem;
-  background: rgba(240,160,96,.07);
-  border: 1px solid rgba(240,160,96,.2);
-  border-radius: 8px; padding: 12px 16px;
-  font-size: 13px; color: var(--muted);
-}
-.song-note strong { color: var(--accent4); }
 
-/* CONCEPT GRID */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .concept-card {
   background: var(--surface);
@@ -182,131 +155,113 @@ section {
 .c4 { border-left: 2px solid rgba(192,96,240,.3); }
 .c5 { border-left: 2px solid rgba(240,160,96,.3); }
 
-/* TIMELINE */
-.timeline { position: relative; padding-left: 1.5rem; }
-.timeline::before {
+.timeline-old { position: relative; padding-left: 1.5rem; }
+.timeline-old::before {
   content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
   width: 1px; background: var(--border);
 }
-.tl-item { position: relative; margin-bottom: 1.5rem; }
-.tl-item::before {
+.tl-item-old { position: relative; margin-bottom: 1.5rem; }
+.tl-item-old::before {
   content: ''; position: absolute; left: -1.5rem; top: 8px;
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--surface2); border: 1px solid var(--muted);
   transform: translateX(-3px);
 }
-.tl-item.highlight::before { background: var(--accent1); border-color: var(--accent1); }
-.tl-item.danger::before { background: var(--accent2); border-color: var(--accent2); }
-.tl-year {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  color: var(--muted); margin-bottom: 2px;
-}
-.tl-law {
-  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
-  margin-bottom: 2px;
-}
+.tl-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.tl-law { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
 .tl-desc { font-size: 13px; color: var(--muted); }
 
-/* LAWS TABLE */
-.law-table { width: 100%; border-collapse: collapse; }
-.law-table th {
+/* ——————————————————————————————————
+   NUEVA LÍNEA DEL TIEMPO
+—————————————————————————————————— */
+.tl-filter-bar {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2rem;
+}
+.filter-btn {
   font-family: 'DM Mono', monospace; font-size: 11px;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--muted); text-align: left;
-  padding: 8px 12px; border-bottom: 1px solid var(--border);
+  padding: 5px 13px; border-radius: 20px; cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  transition: all .18s;
 }
-.law-table td {
-  padding: 10px 12px; font-size: 13px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-.law-table tr:last-child td { border-bottom: none; }
-.law-table tr:hover td { background: var(--surface2); }
-.law-num {
-  font-family: 'DM Mono', monospace; font-weight: 500;
-  color: var(--accent1); white-space: nowrap;
-}
-.law-table .pres { color: var(--muted); font-size: 12px; }
+.filter-btn:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
+.filter-btn.f-all.active  { background: var(--text); color: var(--bg); border-color: var(--text); }
+.filter-btn.f-ley.active  { background: rgba(100,180,50,.15); color: #a8e060; border-color: #a8e060; }
+.filter-btn.f-decreto.active { background: rgba(96,200,240,.12); color: var(--accent3); border-color: var(--accent3); }
+.filter-btn.f-hito.active { background: rgba(192,96,240,.12); color: var(--accent5); border-color: var(--accent5); }
+.filter-btn.f-ok.active   { background: rgba(50,180,130,.12); color: #50d0a0; border-color: #50d0a0; }
+.filter-btn.f-conflicto.active { background: rgba(255,107,107,.1); color: var(--accent2); border-color: var(--accent2); }
 
-/* DISTINCTIONS */
-.distinction { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.dist-side {
+#tl-container { position: relative; }
+
+.tl-era {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); padding: 1.5rem 0 .6rem 52px;
+  border-left: 1px solid var(--border);
+  margin-left: 18px;
+}
+
+.tl-row {
+  display: flex; align-items: flex-start; gap: 0;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.tl-row.show { opacity: 1; transform: translateY(0); }
+
+.tl-spine {
+  display: flex; flex-direction: column; align-items: center;
+  width: 36px; flex-shrink: 0;
+}
+.tl-vline { width: 1px; background: var(--border); flex: 1; min-height: 14px; }
+.tl-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--bg);
+}
+.tl-dot.ley      { background: #7ec840; }
+.tl-dot.decreto  { background: var(--accent3); }
+.tl-dot.hito     { background: var(--accent5); }
+.tl-dot.ok       { background: #40d090; }
+.tl-dot.conflicto{ background: var(--accent2); }
+
+.tl-card {
+  flex: 1; min-width: 0;
+  margin: 0 0 10px 12px;
+  padding: 10px 14px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px; padding: 14px;
+  border-radius: 10px;
+  transition: border-color .2s;
 }
-.dist-side h5 {
-  font-family: 'DM Mono', monospace; font-size: 12px;
-  margin-bottom: 6px;
-}
-.dist-side.a h5 { color: var(--accent1); }
-.dist-side.b h5 { color: var(--accent2); }
-.dist-side p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.tl-card:hover { border-color: rgba(255,255,255,.14); }
 
-/* PHASES */
-.phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.phase-card {
-  border-radius: 10px; padding: 1.1rem;
-  border: 1px solid var(--border);
-}
-.phase-card .pnum { font-family: 'DM Mono', monospace; font-size: 11px; margin-bottom: 4px; }
-.phase-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
-.phase-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.ph1 { background: rgba(96,200,240,.06); border-color: rgba(96,200,240,.2); }
-.ph1 .pnum { color: var(--accent3); }
-.ph2 { background: rgba(200,240,96,.06); border-color: rgba(200,240,96,.2); }
-.ph2 .pnum { color: var(--accent1); }
-.ph3 { background: rgba(255,107,107,.06); border-color: rgba(255,107,107,.2); }
-.ph3 .pnum { color: var(--accent2); }
+.tl-card-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 3px; }
+.tl-card-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); flex-shrink: 0; }
+.tl-card-gov  { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,.25); }
 
-/* NOMIC FLOW */
-.nomic-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: nowrap; overflow-x: auto; }
-.nomic-node {
-  flex: 1; min-width: 160px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 1rem;
+.tl-card-norma {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .95rem;
+  margin-bottom: 3px; color: var(--text);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
 }
-.nomic-arrow {
-  display: flex; align-items: center; justify-content: center;
-  padding: 0 8px; color: var(--muted); font-size: 18px;
-  flex-shrink: 0;
+.tl-card-norma a.ley-link {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  padding: 2px 8px; border-radius: 4px;
+  text-decoration: none; font-weight: 500;
+  transition: opacity .15s; white-space: nowrap;
 }
-.nomic-node h5 { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
-.nomic-node .year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
-.nomic-node p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.tl-card-norma a.ley-link:hover { opacity: .75; }
+.link-ley      { background: rgba(126,200,64,.15); color: #a8e060; border: 1px solid rgba(126,200,64,.3); }
+.link-decreto  { background: rgba(96,200,240,.12); color: var(--accent3); border: 1px solid rgba(96,200,240,.3); }
+.link-hito     { background: rgba(192,96,240,.12); color: var(--accent5); border: 1px solid rgba(192,96,240,.3); }
+.link-ok       { background: rgba(64,208,144,.12); color: #50d0a0; border: 1px solid rgba(64,208,144,.3); }
+.link-conflicto{ background: rgba(255,107,107,.1); color: var(--accent2); border: 1px solid rgba(255,107,107,.25); }
 
-/* CONCENTRATION */
-.conc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.conc-card {
-  border-radius: 10px; padding: 1rem;
-  border: 1px solid var(--border);
-}
-.conc-econ { background: rgba(240,160,96,.07); border-color: rgba(240,160,96,.2); }
-.conc-simb { background: rgba(255,107,107,.07); border-color: rgba(255,107,107,.2); }
-.conc-card h5 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
-.conc-econ h5 { color: var(--accent4); }
-.conc-simb h5 { color: var(--accent2); }
-.conc-card p { font-size: 13px; color: var(--muted); }
+.tl-card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-/* PLATFORMS */
-.plat-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.plat-col { }
-.plat-col h5 {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  letter-spacing: .08em; text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.plat-col.excusas h5 { color: var(--accent2); }
-.plat-col.rebate h5 { color: var(--accent1); }
-.plat-item {
-  font-size: 13px; color: var(--muted); padding: 8px 12px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 6px; margin-bottom: 6px; line-height: 1.5;
-}
-
-/* ==============================
-   CUENTOS SECTION
-   ============================== */
+/* ——————————————————————————————————
+   CUENTOS
+—————————————————————————————————— */
 .cuento-tabs {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem;
 }
@@ -320,81 +275,28 @@ section {
 }
 .cuento-tab:hover { border-color: #e060b0; color: #e060b0; }
 .cuento-tab.active { background: #e060b0; border-color: #e060b0; color: #fff; font-weight: 500; }
-
 .cuento-panel { display: none; }
 .cuento-panel.visible { display: block; }
-
 .cuento-header {
   display: flex; align-items: flex-start; gap: 1.2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 2rem; padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
-.cuento-icon {
-  font-size: 2.8rem;
-  line-height: 1;
-  flex-shrink: 0;
-  padding: 0.6rem;
-  background: var(--surface2);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-.cuento-header-text h3 {
-  font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: 1.4rem; margin-bottom: 4px;
-  color: var(--text);
-}
-.cuento-header-text .cuento-autor {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  color: #e060b0; letter-spacing: .08em; text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.cuento-header-text .cuento-subtitulo {
-  font-size: 13px; color: var(--muted); font-style: italic;
-}
-
-/* Story body */
-.cuento-body {
-  display: flex; flex-direction: column; gap: 0;
-}
-.cuento-bloque {
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
+.cuento-icon { font-size: 2.8rem; line-height: 1; flex-shrink: 0; padding: .6rem; background: var(--surface2); border-radius: 12px; border: 1px solid var(--border); }
+.cuento-header-text h3 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; margin-bottom: 4px; color: var(--text); }
+.cuento-header-text .cuento-autor { font-family: 'DM Mono', monospace; font-size: 11px; color: #e060b0; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+.cuento-header-text .cuento-subtitulo { font-size: 13px; color: var(--muted); font-style: italic; }
+.cuento-body { display: flex; flex-direction: column; gap: 0; }
+.cuento-bloque { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
 .cuento-bloque:last-child { border-bottom: none; }
-
-.cuento-bloque-header {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 10px;
-}
-.bloque-emoji {
-  font-size: 1.4rem; flex-shrink: 0;
-}
-.bloque-titulo {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--muted);
-}
-
-.cuento-texto {
-  font-size: 14px; color: #c8c6d8;
-  line-height: 1.85;
-}
+.cuento-bloque-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.bloque-emoji { font-size: 1.4rem; flex-shrink: 0; }
+.bloque-titulo { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.cuento-texto { font-size: 14px; color: #c8c6d8; line-height: 1.85; }
 .cuento-texto p { margin-bottom: 1em; }
 .cuento-texto p:last-child { margin-bottom: 0; }
-
-/* Highlighted concept callouts inside cuentos */
-.cuento-callout {
-  background: var(--surface2);
-  border-left: 3px solid #e060b0;
-  border-radius: 0 8px 8px 0;
-  padding: 10px 14px;
-  margin: 14px 0;
-  font-size: 13px; color: var(--muted);
-}
+.cuento-callout { background: var(--surface2); border-left: 3px solid #e060b0; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 13px; color: var(--muted); }
 .cuento-callout strong { color: #e060b0; }
-
 .cuento-callout.verde { border-left-color: var(--accent1); }
 .cuento-callout.verde strong { color: var(--accent1); }
 .cuento-callout.azul { border-left-color: var(--accent3); }
@@ -403,41 +305,63 @@ section {
 .cuento-callout.rojo strong { color: var(--accent2); }
 .cuento-callout.naranja { border-left-color: var(--accent4); }
 .cuento-callout.naranja strong { color: var(--accent4); }
-
-/* Key term highlight inline */
 .kt { color: #e8e6f0; font-weight: 500; }
-.kt.g { color: var(--accent1); } /* green */
-.kt.a { color: var(--accent3); } /* blue */
-.kt.r { color: var(--accent2); } /* red */
-.kt.o { color: var(--accent4); } /* orange */
-.kt.p { color: #e060b0; } /* pink */
-
-/* Small inline author tag */
-.inline-autor {
-  font-size: 11px; font-style: italic; color: var(--muted);
-  margin-left: 4px;
-}
-
-/* Datos rápidos strip */
-.datos-strip {
-  display: flex; gap: 8px; flex-wrap: wrap;
-  margin-top: 14px;
-}
-.dato-chip {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  padding: 4px 10px; border-radius: 20px;
-  background: var(--surface2); border: 1px solid var(--border);
-  color: var(--muted);
-}
+.kt.g { color: var(--accent1); }
+.kt.a { color: var(--accent3); }
+.kt.r { color: var(--accent2); }
+.kt.o { color: var(--accent4); }
+.kt.p { color: #e060b0; }
+.inline-autor { font-size: 11px; font-style: italic; color: var(--muted); margin-left: 4px; }
+.datos-strip { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.dato-chip { font-family: 'DM Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 20px; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
 .dato-chip strong { color: var(--text); }
 
-/* FOOTER */
-footer {
-  max-width: 860px; margin: 0 auto;
-  padding: 2rem 2rem 4rem;
-  border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-}
+/* DISTINCIONES */
+.distinction { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.dist-side { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.dist-side h5 { font-family: 'DM Mono', monospace; font-size: 12px; margin-bottom: 6px; }
+.dist-side.a h5 { color: var(--accent1); }
+.dist-side.b h5 { color: var(--accent2); }
+.dist-side p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* FASES U4 */
+.phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.phase-card { border-radius: 10px; padding: 1.1rem; border: 1px solid var(--border); }
+.phase-card .pnum { font-family: 'DM Mono', monospace; font-size: 11px; margin-bottom: 4px; }
+.phase-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
+.phase-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.ph1 { background: rgba(96,200,240,.06); border-color: rgba(96,200,240,.2); }
+.ph1 .pnum { color: var(--accent3); }
+.ph2 { background: rgba(200,240,96,.06); border-color: rgba(200,240,96,.2); }
+.ph2 .pnum { color: var(--accent1); }
+.ph3 { background: rgba(255,107,107,.06); border-color: rgba(255,107,107,.2); }
+.ph3 .pnum { color: var(--accent2); }
+
+/* NOMIC FLOW */
+.nomic-flow { display: flex; align-items: stretch; gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+.nomic-node { flex: 1; min-width: 160px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+.nomic-arrow { display: flex; align-items: center; justify-content: center; padding: 0 8px; color: var(--muted); font-size: 18px; flex-shrink: 0; }
+.nomic-node h5 { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.nomic-node .year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.nomic-node p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CONCENTRACIÓN */
+.conc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.conc-card { border-radius: 10px; padding: 1rem; border: 1px solid var(--border); }
+.conc-econ { background: rgba(240,160,96,.07); border-color: rgba(240,160,96,.2); }
+.conc-simb { background: rgba(255,107,107,.07); border-color: rgba(255,107,107,.2); }
+.conc-card h5 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
+.conc-econ h5 { color: var(--accent4); }
+.conc-simb h5 { color: var(--accent2); }
+.conc-card p { font-size: 13px; color: var(--muted); }
+
+.plat-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.plat-col h5 { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.plat-col.excusas h5 { color: var(--accent2); }
+.plat-col.rebate h5 { color: var(--accent1); }
+.plat-item { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 6px; line-height: 1.5; }
+
+footer { max-width: 860px; margin: 0 auto; padding: 2rem 2rem 4rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 footer p { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
 footer strong { color: var(--accent1); }
 
@@ -453,8 +377,7 @@ footer strong { color: var(--accent1); }
 <body>
 
 <nav id="nav">
-  <a href="#canciones" class="active">Canciones</a>
-  <a href="#cuentos">📖 Cuentos</a>
+  <a href="#cuentos" class="active">📖 Cuentos</a>
   <a href="#u1">U1 Estado</a>
   <a href="#u2">U2 Argentina</a>
   <a href="#u3">U3 Concentración</a>
@@ -466,235 +389,14 @@ footer strong { color: var(--accent1); }
 <div class="hero">
   <span class="hero-label">Material de estudio</span>
   <h1>Políticas de Comunicación</h1>
-  <p>Canciones, cuentos y mapas conceptuales para el parcial del miércoles</p>
+  <p>Cuentos y mapas conceptuales para el parcial del miércoles</p>
   <div class="hero-meta">
     <span><strong>4</strong> unidades</span>
-    <span><strong>4</strong> canciones</span>
     <span><strong>5</strong> cuentos</span>
     <span><strong>+30</strong> conceptos clave</span>
     <span><strong>miércoles</strong> parcial</span>
   </div>
 </div>
-
-<!-- CANCIONES -->
-<section id="canciones">
-  <div class="section-header">
-    <span class="section-num songs">canciones</span>
-    <h2 class="section-title">El álbum del parcial</h2>
-  </div>
-
-  <div class="song-tabs">
-    <button class="song-tab active" onclick="showSong(0)">U1 — Despacito</button>
-    <button class="song-tab" onclick="showSong(1)">U2 — Yo Perreo Sola</button>
-    <button class="song-tab" onclick="showSong(2)">U3 — BZRP x Nathy</button>
-    <button class="song-tab" onclick="showSong(3)">U4 — Argentina</button>
-  </div>
-
-  <div class="song-panel visible" id="song0">
-    <div class="song-meta">
-      <h3>El Estado (Despacito)</h3>
-      <div class="cover">cover de Despacito — Luis Fonsi ft. Daddy Yankee</div>
-      <span class="unit-badge">Unidad 1 — Estado y políticas públicas</span>
-    </div>
-    <div class="lyrics">
-      <div class="lyric-block">
-        <div class="lyric-label">Intro</div>
-        <div class="lyric-line">Eh-eh-eh... Califano, Valles, O'Donnell, vamos</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 1 — El Estado</div>
-        <div class="lyric-line">El Estado no es una cosa, no es una entidad<span class="auth">Califano</span></div>
-        <div class="lyric-line">es una <span class="key">relación social</span>, eso dice O'Donnell de verdad</div>
-        <div class="lyric-line">condensa los poderes que emergen de la sociedad</div>
-        <div class="lyric-line">y los devuelve como <span class="key">políticas y omisiones</span>, ya verás</div>
-        <div class="lyric-line">Mann le suma cuatro elementos pa' completar<span class="auth">Califano</span></div>
-        <div class="lyric-line">instituciones, centralización, territorio y monopolio al usar</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Coro — Politics vs Policy</div>
-        <div class="lyric-line">De-spa-ci-to... <span class="key">politics</span> es la lucha electoral<span class="auth">Valles</span></div>
-        <div class="lyric-line"><span class="key">policy</span> es la acción concreta del Estado ya</div>
-        <div class="lyric-line">en inglés se distinguen, en castellano no están</div>
-        <div class="lyric-line">¡pero en el parcial las separo y el punto se me da!</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 2 — Tipos de política y ciclo</div>
-        <div class="lyric-line">Cuatro categorías de Lowi hay que nombrar<span class="auth">Valles</span></div>
-        <div class="lyric-line"><span class="key">regulativas, distributivas</span>, redistributivas ya</div>
-        <div class="lyric-line">e <span class="key">institucionales</span> que fijan el procedimiento igual</div>
-        <div class="lyric-line">el ciclo tiene cuatro etapas pa' elaborar:</div>
-        <div class="lyric-line">iniciación, elaboración, implantación, evaluar</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Puente — Modelos de decisión</div>
-        <div class="lyric-line"><span class="key">Racionalidad radical</span> es optimizar<span class="auth">Valles</span></div>
-        <div class="lyric-line"><span class="key">racionalidad limitada</span> es satisfacer nomás</div>
-        <div class="lyric-line">el <span class="key">incremental</span> es ajuste mutuo al andar</div>
-        <div class="lyric-line">y el <span class="key">garbage can</span> es puro caos y casualidad</div>
-      </div>
-    </div>
-    <div class="song-note"><strong>Para recordar:</strong> Despacito = despacio = proceso paso a paso = el ciclo de elaboración de políticas.</div>
-  </div>
-
-  <div class="song-panel" id="song1">
-    <div class="song-meta">
-      <h3>Yo Estudio Sola (Yo Perreo Sola)</h3>
-      <div class="cover">cover de Yo Perreo Sola — Bad Bunny</div>
-      <span class="unit-badge">Unidad 2 — Historia argentina + NOMIC + Servicio público</span>
-    </div>
-    <div class="lyrics">
-      <div class="lyric-block">
-        <div class="lyric-label">Intro</div>
-        <div class="lyric-line">Yo perreo sola... con la ley <span class="key">22.285</span> en la mano</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 1 — Historia argentina</div>
-        <div class="lyric-line"><span class="key">22.285</span>, Videla, 1980<span class="auth">Cronología</span></div>
-        <div class="lyric-line">militares en el COMFER, sin fines de lucro, queda afuera</div>
-        <div class="lyric-line">el artículo <span class="key">114</span> renueva todo automático</div>
-        <div class="lyric-line">y esa ley duró hasta 2009, lo juro, fue dramático</div>
-        <div class="lyric-line">Menem privatiza con la <span class="key">23.696</span></div>
-        <div class="lyric-line">canales 11 y 13 pa' Telefé y Clarín, eso fue</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Coro — Graziano y las PNC</div>
-        <div class="lyric-line">Yo estudio sola, yo estudio sola</div>
-        <div class="lyric-line"><span class="key">política antes que ley</span>, dice Graziano eso<span class="auth">Graziano</span></div>
-        <div class="lyric-line">pusieron el carro delante de los bueyes, eso</div>
-        <div class="lyric-line">etapa <span class="key">formalista</span> primero, luego <span class="key">contenidista</span></div>
-        <div class="lyric-line">con acceso, participación, nueva lista</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 2 — NOMIC y MacBride</div>
-        <div class="lyric-line">Los No Alineados piden flujo equilibrado<span class="auth">Mastrini & De Charras</span></div>
-        <div class="lyric-line">el libre flujo de info a ellos los ha perjudicado</div>
-        <div class="lyric-line"><span class="key">MacBride 1980</span>: comunicar es un derecho humano</div>
-        <div class="lyric-line">EEUU se va de la UNESCO, debate fue bloqueado</div>
-        <div class="lyric-line">la CMSI 2003 lo llama <span class="key">brecha digital</span> nomás</div>
-        <div class="lyric-line">desequilibrio informativo renombrado, igual pero disfraz</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Puente — Servicio público</div>
-        <div class="lyric-line"><span class="key">Informar, educar, entretener</span>: el modelo europeo<span class="auth">Mastrini</span></div>
-        <div class="lyric-line">universalidad, continuidad y cambio como recreo</div>
-        <div class="lyric-line"><span class="key">medios estatales</span> no es lo mismo que <span class="key">medios públicos</span></div>
-        <div class="lyric-line">en Argentina siempre fueron gubernamentales, eso fue el vicio</div>
-      </div>
-    </div>
-    <div class="song-note"><strong>Para recordar:</strong> "Yo perreo sola" = las PNC fracasaron porque los impulsores no pudieron sumar aliados. Estudiaron solos y perdieron.</div>
-  </div>
-
-  <div class="song-panel" id="song2">
-    <div class="song-meta">
-      <h3>BZRP Music Sessions — Concentración</h3>
-      <div class="cover">cover de BZRP x Nathy Peluso</div>
-      <span class="unit-badge">Unidad 3 — Concentración, industrias culturales, plataformas</span>
-    </div>
-    <div class="lyrics">
-      <div class="lyric-block">
-        <div class="lyric-label">Intro</div>
-        <div class="lyric-line">Soy la que manda, la que regula, la que concentra</div>
-        <div class="lyric-line">soy Clarín, soy Google, soy la que siempre entra</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 1 — Industrias culturales</div>
-        <div class="lyric-line">Alto costo fijo, bajo costo marginal<span class="auth">Becerra & Mastrini</span></div>
-        <div class="lyric-line">demanda incierta, riesgo total</div>
-        <div class="lyric-line"><span class="key">efectos de red</span>: cuantos más, más vale estar</div>
-        <div class="lyric-line">eso genera monopolios, fácil de notar</div>
-        <div class="lyric-line"><span class="key">modelo editorial</span>: el editor decide el producto</div>
-        <div class="lyric-line"><span class="key">modelo de flujo</span>: el programador es el conducto</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Coro — Concentración</div>
-        <div class="lyric-line"><span class="key">CR4</span> supera el ochenta en América Latina<span class="auth">Becerra & Mastrini</span></div>
-        <div class="lyric-line">doble dimensión: económica y la que al pluralismo lastima</div>
-        <div class="lyric-line">no es solo un problema de mercado, es de democracia</div>
-        <div class="lyric-line">concentración más poder simbólico es la desgracia</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 2 — Plataformas</div>
-        <div class="lyric-line">"No somos medios, somos tech", dicen con cara dura<span class="auth">Napoli & Caplan</span></div>
-        <div class="lyric-line">pero venden publicidad, esa es su estructura</div>
-        <div class="lyric-line">tres excusas dan para no ser reguladas igual:</div>
-        <div class="lyric-line">"no producimos", "somos código", "no hay editorial"</div>
-        <div class="lyric-line">pero Google tiene el noventa por ciento en búsquedas</div>
-        <div class="lyric-line">y Facebook compite con la tele, esas son las pruebas</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Puente — Techlash</div>
-        <div class="lyric-line"><span class="key">Techlash</span> desde 2016: Cambridge Analytica llegó<span class="auth">Flew, Martin & Suzor</span></div>
-        <div class="lyric-line">fake news, privacidad, el escándalo explotó</div>
-        <div class="lyric-line">moderación de contenidos: algoritmos más humanos al final</div>
-        <div class="lyric-line"><span class="key">Sección 230</span>: puerto seguro que las protege aún</div>
-        <div class="lyric-line">¿editoras o intermediarias? ese es el debate común</div>
-      </div>
-    </div>
-    <div class="song-note"><strong>Para recordar:</strong> Nathy canta con actitud de quien sabe que manda. Las plataformas tienen exactamente esa actitud.</div>
-  </div>
-
-  <div class="song-panel" id="song3">
-    <div class="song-meta">
-      <h3>Argentina (de Trueno)</h3>
-      <div class="cover">cover de Argentina — Trueno</div>
-      <span class="unit-badge">Unidad 4 — Marcos regulatorios comparados</span>
-    </div>
-    <div class="lyrics">
-      <div class="lyric-block">
-        <div class="lyric-label">Intro</div>
-        <div class="lyric-line">Ar-gen-ti-na... pero también Europa y el resto del mundo</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 1 — Las 3 fases</div>
-        <div class="lyric-line"><span class="key">Fase Uno</span>: tecnología emergente, reglas ad hoc<span class="auth">Van Cuilenburg & McQuail</span></div>
-        <div class="lyric-line">telégrafo, radio, teléfono: cada uno su bloc</div>
-        <div class="lyric-line"><span class="key">Fase Dos</span>: posguerra, servicio público tomó el mando</div>
-        <div class="lyric-line">BBC, RAI, normativa sociopolítica avanzando</div>
-        <div class="lyric-line"><span class="key">Fase Tres</span>: desde Reagan, el mercado gobierna</div>
-        <div class="lyric-line">privatización, convergencia, la lógica se moderniza y alterna</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Coro — McQuail</div>
-        <div class="lyric-line">Ar-gen-ti-na, pero hay <span class="key">seis razones</span> pa' regular<span class="auth">McQuail</span></div>
-        <div class="lyric-line">gestionar la info, el orden, los derechos al cuidar</div>
-        <div class="lyric-line">promover eficiencia, el acceso universal</div>
-        <div class="lyric-line"><span class="key">liberal, dem. corporativista, pluralista polarizado</span></div>
-        <div class="lyric-line">tres modelos de Hallin y Mancini para comparar</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Estrofa 2 — Flew</div>
-        <div class="lyric-line">Dicen que la globalización mató al Estado-nación<span class="auth">Flew</span></div>
-        <div class="lyric-line">Flew responde: no, sigue siendo la institución</div>
-        <div class="lyric-line">los medios convergen pero las reglas divergen igual</div>
-        <div class="lyric-line">cada país responde diferente al cambio digital</div>
-      </div>
-      <hr class="lyric-divider">
-      <div class="lyric-block">
-        <div class="lyric-label">Puente — Puppis</div>
-        <div class="lyric-line"><span class="key">Regulación</span> es la norma legal específica<span class="auth">Puppis</span></div>
-        <div class="lyric-line"><span class="key">gobernanza</span> es el conjunto total, más amplia y dinámica</div>
-        <div class="lyric-line">autorregulación: la industria se pone sus propias reglas</div>
-        <div class="lyric-line">co-regulación: Estado más industria, combinan sus huellas</div>
-      </div>
-    </div>
-    <div class="song-note"><strong>Para recordar:</strong> "Argentina" de Trueno habla de identidad y trayectoria histórica — el argumento central de Flew: cada sistema mediático tiene su historia propia.</div>
-  </div>
-</section>
 
 <!-- CUENTOS -->
 <section id="cuentos">
@@ -702,7 +404,6 @@ footer strong { color: var(--accent1); }
     <span class="section-num cuentos">cuentos</span>
     <h2 class="section-title">Los textos como relatos</h2>
   </div>
-
   <div class="cuento-tabs">
     <button class="cuento-tab active" onclick="showCuento(0)">🏗️ Graziano</button>
     <button class="cuento-tab" onclick="showCuento(1)">📡 Mastrini — Medios públicos</button>
@@ -710,8 +411,6 @@ footer strong { color: var(--accent1); }
     <button class="cuento-tab" onclick="showCuento(3)">🗺️ Exeni</button>
     <button class="cuento-tab" onclick="showCuento(4)">🌹 Marea rosa</button>
   </div>
-
-  <!-- CUENTO 1: GRAZIANO -->
   <div class="cuento-panel visible" id="cuento0">
     <div class="cuento-header">
       <div class="cuento-icon">🏗️</div>
@@ -722,84 +421,33 @@ footer strong { color: var(--accent1); }
       </div>
     </div>
     <div class="cuento-body">
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🔬</span>
-          <span class="bloque-titulo">El punto de partida — Pasquali, 1964</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Era 1964 y en Caracas un filósofo venezolano llamado Antonio Pasquali publicó un libro que cambiaría todo. Hasta ese momento, los investigadores de comunicación miraban los mensajes o los efectos en la audiencia. Pasquali dijo: están mirando para el lado equivocado. Lo que importa es quién emite. Y quien emite tiene dueño. Y ese dueño tiene poder económico. Ahí está el verdadero problema.</p>
-          <div class="cuento-callout verde"><strong>Desmontaje del emisor:</strong> no preguntarse qué dice el mensaje sino quién lo produce, con qué capital, vinculado a qué intereses. Inaugura la sociopolítica de las comunicaciones en América Latina.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🔬</span><span class="bloque-titulo">El punto de partida — Pasquali, 1964</span></div>
+        <div class="cuento-texto"><p>Era 1964 y en Caracas un filósofo venezolano llamado Antonio Pasquali publicó un libro que cambiaría todo. Hasta ese momento, los investigadores de comunicación miraban los mensajes o los efectos en la audiencia. Pasquali dijo: están mirando para el lado equivocado. Lo que importa es quién emite. Y quien emite tiene dueño. Y ese dueño tiene poder económico. Ahí está el verdadero problema.</p><div class="cuento-callout verde"><strong>Desmontaje del emisor:</strong> no preguntarse qué dice el mensaje sino quién lo produce, con qué capital, vinculado a qué intereses. Inaugura la sociopolítica de las comunicaciones en América Latina.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📢</span>
-          <span class="bloque-titulo">Primera etapa — El diagnóstico furioso</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Durante los años 60 y principios de los 70, los investigadores latinoamericanos se dedicaron a denunciar. El diagnóstico era claro: los medios estaban <span class="kt g">concentrados en pocas manos privadas</span>, esas manos tenían vínculos con el poder económico y político, y el "libre flujo de la información" era una pantalla ideológica para que las agencias transnacionales norteamericanas inundaran la región con su versión del mundo.</p>
-          <p>El Estado en ese momento era visto como cómplice. No había mucho más que decir: el Estado era instrumento de la clase dominante, punto.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">📢</span><span class="bloque-titulo">Primera etapa — El diagnóstico furioso</span></div>
+        <div class="cuento-texto"><p>Durante los años 60 y principios de los 70, los investigadores latinoamericanos se dedicaron a denunciar. El diagnóstico era claro: los medios estaban <span class="kt g">concentrados en pocas manos privadas</span>, esas manos tenían vínculos con el poder económico y político, y el "libre flujo de la información" era una pantalla ideológica para que las agencias transnacionales norteamericanas inundaran la región con su versión del mundo.</p><p>El Estado en ese momento era visto como cómplice. No había mucho más que decir: el Estado era instrumento de la clase dominante, punto.</p></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">⚡</span>
-          <span class="bloque-titulo">El giro — El Estado como campo de batalla</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Pero a principios de los 70 algo cambió. Llegaron Gramsci, llegaron las experiencias de Allende en Chile, de Velasco en Perú, del peronismo en Argentina. Y los investigadores empezaron a pensar distinto: el Estado no es solo un instrumento de dominación. Es también un espacio de disputa, con grietas, con contradicciones internas, con funcionarios que pueden ser presionados.</p>
-          <div class="cuento-callout azul"><strong>Intersticios:</strong> grietas dentro del aparato estatal donde sectores progresistas pueden instalarse. El Estado deja de ser enemigo irreformable y pasa a ser terreno de disputa.</div>
-          <p>Si hay intersticios, entonces tiene sentido reclamarle al Estado que intervenga en los medios. No como dueño autoritario, sino como regulador que ponga racionalidad donde solo hay lógica de mercado. Esa fue la apuesta de las <span class="kt p">Políticas Nacionales de Comunicación</span>.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">⚡</span><span class="bloque-titulo">El giro — El Estado como campo de batalla</span></div>
+        <div class="cuento-texto"><p>Pero a principios de los 70 algo cambió. Llegaron Gramsci, llegaron las experiencias de Allende en Chile, de Velasco en Perú, del peronismo en Argentina. Y los investigadores empezaron a pensar distinto: el Estado no es solo un instrumento de dominación. Es también un espacio de disputa, con grietas, con contradicciones internas, con funcionarios que pueden ser presionados.</p><div class="cuento-callout azul"><strong>Intersticios:</strong> grietas dentro del aparato estatal donde sectores progresistas pueden instalarse. El Estado deja de ser enemigo irreformable y pasa a ser terreno de disputa.</div><p>Si hay intersticios, entonces tiene sentido reclamarle al Estado que intervenga en los medios. No como dueño autoritario, sino como regulador que ponga racionalidad donde solo hay lógica de mercado. Esa fue la apuesta de las <span class="kt p">Políticas Nacionales de Comunicación</span>.</p></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📋</span>
-          <span class="bloque-titulo">La etapa formalista — Pedir que el Estado exista</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Entre 1973 y 1977 el reclamo era modesto pero revolucionario: que el Estado tuviera políticas de comunicación. Que dijera algo. Que no dejara todo librado al mercado.</p>
-          <p>La sola idea de que el Estado pudiera tener algo que decir en ese campo era, de hecho, una impugnación al orden establecido. Los sectores privados siempre usaron el mismo argumento: cualquier intervención del Estado en los medios es censura, es el comienzo del totalitarismo.</p>
-          <div class="cuento-callout rojo"><strong>La respuesta de Graziano:</strong> el Estado ya interviene, siempre intervino. Otorga licencias sobre un espectro que le pertenece por derecho internacional. La pregunta no es <em>si</em> el Estado debe intervenir. La pregunta es <em>a favor de quién</em> interviene y con qué objetivos.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">📋</span><span class="bloque-titulo">La etapa formalista — Pedir que el Estado exista</span></div>
+        <div class="cuento-texto"><p>Entre 1973 y 1977 el reclamo era modesto pero revolucionario: que el Estado tuviera políticas de comunicación. Que dijera algo. Que no dejara todo librado al mercado.</p><div class="cuento-callout rojo"><strong>La respuesta de Graziano:</strong> el Estado ya interviene, siempre intervino. Otorga licencias sobre un espectro que le pertenece por derecho internacional. La pregunta no es <em>si</em> el Estado debe intervenir. La pregunta es <em>a favor de quién</em> interviene y con qué objetivos.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📜</span>
-          <span class="bloque-titulo">Argentina, 1984–1988 — El argumento central</span>
-        </div>
-        <div class="cuento-texto">
-          <p>La Guía Teórica la escribió Graziano en 1984, cuando Argentina recuperaba la democracia. El texto "Política o Ley" lo escribió en 1988, cuando el gobierno de Alfonsín enviaba al Congreso un proyecto de ley de radiodifusión.</p>
-          <p>Y ahí está el nudo de todo su pensamiento: <span class="kt g">no alcanza con una ley</span>. Una ley es el carro delante de los bueyes. Primero hay que tener claros los objetivos, las políticas, el diagnóstico. Después viene la norma que los instrumenta.</p>
-        </div>
-        <div class="datos-strip">
-          <span class="dato-chip">📺 Sistema <strong>competitivo</strong> → homogeneización</span>
-          <span class="dato-chip">📻 Sistema <strong>complementario</strong> → diversidad real</span>
-          <span class="dato-chip">🏢 Concentración <strong>horizontal</strong> + <strong>vertical</strong> + <strong>ampliada</strong></span>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">📜</span><span class="bloque-titulo">Argentina, 1984–1988 — El argumento central</span></div>
+        <div class="cuento-texto"><p>La Guía Teórica la escribió Graziano en 1984, cuando Argentina recuperaba la democracia. El texto "Política o Ley" lo escribió en 1988, cuando el gobierno de Alfonsín enviaba al Congreso un proyecto de ley de radiodifusión.</p><p>Y ahí está el nudo de todo su pensamiento: <span class="kt g">no alcanza con una ley</span>. Una ley es el carro delante de los bueyes. Primero hay que tener claros los objetivos, las políticas, el diagnóstico. Después viene la norma que los instrumenta.</p></div>
+        <div class="datos-strip"><span class="dato-chip">📺 Sistema <strong>competitivo</strong> → homogeneización</span><span class="dato-chip">📻 Sistema <strong>complementario</strong> → diversidad real</span><span class="dato-chip">🏢 Concentración <strong>horizontal</strong> + <strong>vertical</strong> + <strong>ampliada</strong></span></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">⏳</span>
-          <span class="bloque-titulo">El final abierto</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Graziano termina sus textos sin victoria. La ley que se discutía en 1988 no llegó a promulgarse. La que heredó de la dictadura siguió vigente. Los medios siguieron concentrándose.</p>
-          <p>Habría que esperar hasta <span class="kt g">2009</span> para que Argentina aprobara la LSCA, con la reserva del tercio del espectro para medios sin fines de lucro. Veintiún años después de que Graziano escribiera que el debate ya estaba abierto.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">⏳</span><span class="bloque-titulo">El final abierto</span></div>
+        <div class="cuento-texto"><p>Graziano termina sus textos sin victoria. La ley que se discutía en 1988 no llegó a promulgarse. La que heredó de la dictadura siguió vigente. Los medios siguieron concentrándose.</p><p>Habría que esperar hasta <span class="kt g">2009</span> para que Argentina aprobara la LSCA, con la reserva del tercio del espectro para medios sin fines de lucro. Veintiún años después de que Graziano escribiera que el debate ya estaba abierto.</p></div>
       </div>
-
     </div>
   </div>
-
-  <!-- CUENTO 2: MASTRINI MEDIOS PÚBLICOS -->
   <div class="cuento-panel" id="cuento1">
     <div class="cuento-header">
       <div class="cuento-icon">📡</div>
@@ -810,84 +458,24 @@ footer strong { color: var(--accent1); }
       </div>
     </div>
     <div class="cuento-body">
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🏛️</span>
-          <span class="bloque-titulo">Europa de posguerra — El modelo nace</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Después de la Segunda Guerra Mundial, Europa tenía que reconstruir también la confianza ciudadana en sus instituciones después de años de propaganda nazi y fascista. Varios países tomaron una decisión que parecía obvia: la radio y la televisión no podían quedar en manos del mercado ni del gobierno. Tenían que ser públicas, independientes, financiadas por los propios ciudadanos.</p>
-          <div class="cuento-callout azul"><strong>Misión del servicio público:</strong> informar, educar, entretener. Para todos. Sin importar dónde vivieran ni cuánta plata tuvieran.</div>
-          <p>El <span class="kt a">canon</span> —ese pago anual de los ciudadanos que no era una suscripción sino una contribución al bien común— aseguraba que nadie pudiera comprar la línea editorial. Ni el mercado ni el gobierno.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🏛️</span><span class="bloque-titulo">Europa de posguerra — El modelo nace</span></div>
+        <div class="cuento-texto"><p>Después de la Segunda Guerra Mundial, Europa tenía que reconstruir también la confianza ciudadana en sus instituciones después de años de propaganda nazi y fascista.</p><div class="cuento-callout azul"><strong>Misión del servicio público:</strong> informar, educar, entretener. Para todos. Sin importar dónde vivieran ni cuánta plata tuvieran.</div><p>El <span class="kt a">canon</span> —ese pago anual de los ciudadanos que no era una suscripción sino una contribución al bien común— aseguraba que nadie pudiera comprar la línea editorial. Ni el mercado ni el gobierno.</p></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">⚠️</span>
-          <span class="bloque-titulo">América Latina — La confusión original</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Mientras Europa construía ese modelo, América Latina tomó otro camino. Donde existieron medios estatales, no fueron medios públicos: fueron bocinas del gobierno de turno.</p>
-          <div class="cuento-callout rojo"><strong>La distinción clave:</strong> un <em>medio estatal</em> es del Estado, lo controla el ejecutivo y habla a favor del gobierno. Un <em>medio público</em> es de la sociedad, tiene independencia editorial y habla para todos los ciudadanos. En América Latina tuvimos lo primero y casi nunca lo segundo.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">⚠️</span><span class="bloque-titulo">América Latina — La confusión original</span></div>
+        <div class="cuento-texto"><div class="cuento-callout rojo"><strong>La distinción clave:</strong> un <em>medio estatal</em> es del Estado, lo controla el ejecutivo y habla a favor del gobierno. Un <em>medio público</em> es de la sociedad, tiene independencia editorial y habla para todos los ciudadanos. En América Latina tuvimos lo primero y casi nunca lo segundo.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🤺</span>
-          <span class="bloque-titulo">El debate latinoamericano — Dos posturas</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Los investigadores latinoamericanos se dividieron. <strong>Gonzaga Motta y Ubirajara da Silva</strong> (Brasil): no hay que perder el tiempo reclamándole al Estado medios públicos porque siempre va a usarlos para su beneficio. Mejor apostar por los medios alternativos y comunitarios.</p>
-          <p><strong>Pasquali</strong> (Venezuela): hay que defender los medios públicos pero bien diseñados. Con doble independencia: económica del mercado <em>y</em> política del gobierno. Si el medio público queda absorbido por el gobierno deja de ser público, pero eso no es razón para abandonar la idea sino para diseñarla mejor.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">💥</span><span class="bloque-titulo">Los años 80 — El neoliberalismo llega a Europa</span></div>
+        <div class="cuento-texto"><p>Con Reagan y Thatcher, el neoliberalismo llegó con su argumento: el mercado lo hace todo mejor. Se abrió la competencia, entraron los canales privados.</p><div class="cuento-callout verde"><strong>Protocolo 32 del Tratado de Ámsterdam (1997):</strong> los medios públicos no existen porque el espectro es escaso. Existen porque la democracia los necesita, la cohesión social los necesita y la diversidad cultural los necesita.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">💥</span>
-          <span class="bloque-titulo">Los años 80 — El neoliberalismo llega a Europa</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Con Reagan y Thatcher, el neoliberalismo llegó con su argumento: el mercado lo hace todo mejor. Se abrió la competencia, entraron los canales privados, y los medios públicos de repente tuvieron que pelear por audiencia. La crisis fue doble: de legitimidad y económica.</p>
-          <p>Pero los medios públicos europeos sobrevivieron. Y los documentos oficiales europeos los respaldaron con un argumento nuevo y mejor que la escasez de frecuencias:</p>
-          <div class="cuento-callout verde"><strong>Protocolo 32 del Tratado de Ámsterdam (1997):</strong> los medios públicos no existen porque el espectro es escaso. Existen porque la democracia los necesita, la cohesión social los necesita y la diversidad cultural los necesita. Esa justificación no desaparece con la digitalización.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🚨</span><span class="bloque-titulo">La advertencia final</span></div>
+        <div class="cuento-texto"><p>Mastrini cierra con una advertencia: si las sociedades latinoamericanas no construyen una estrategia temprana para que los medios públicos ocupen un lugar real en el entorno digital, va a pasar lo mismo que con la TV analógica: la digitalización solo va a profundizar el modelo comercial. La tecnología no define por sí sola quién habla y quién no. Eso lo definen las políticas.</p></div>
       </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🌐</span>
-          <span class="bloque-titulo">El siglo XXI — La batalla digital</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Llegó internet y el sector privado vio su oportunidad: si hay canales infinitos, ¿para qué financiar medios públicos? El argumento de la escasez de frecuencias ya no servía. Los privados presionaron para que en la transición al digital los medios públicos no pudieran ofrecer contenido gratis en las nuevas plataformas.</p>
-          <p>En España, por ejemplo, los medios públicos pasaron del 50% del espectro analógico al 20% del digital.</p>
-        </div>
-        <div class="datos-strip">
-          <span class="dato-chip">🇧🇷 Brasil → Foro Nacional + Intervozes</span>
-          <span class="dato-chip">🇦🇷 Argentina → 21 puntos → LSCA 2009</span>
-          <span class="dato-chip">🌎 Telesur → 2005 (multiestatal)</span>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🚨</span>
-          <span class="bloque-titulo">La advertencia final</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Mastrini cierra con una advertencia: si las sociedades latinoamericanas no construyen una estrategia temprana para que los medios públicos ocupen un lugar real en el entorno digital, va a pasar lo mismo que con la TV analógica: la digitalización solo va a profundizar el modelo comercial.</p>
-          <p>La tecnología no define por sí sola quién habla y quién no. Eso lo definen las políticas. Y las políticas las definen los actores con poder para imponerlas.</p>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  <!-- CUENTO 3: MASTRINI & DE CHARRAS -->
   <div class="cuento-panel" id="cuento2">
     <div class="cuento-header">
       <div class="cuento-icon">🌍</div>
@@ -898,74 +486,21 @@ footer strong { color: var(--accent1); }
       </div>
     </div>
     <div class="cuento-body">
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📰</span>
-          <span class="bloque-titulo">Argel, 1973 — La denuncia</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Los jefes de Estado de los Países No Alineados dijeron algo que parecía obvio pero que nadie había dicho tan fuerte: la información que recibimos del mundo, incluso la de lo que pasa en nuestros propios países, nos llega procesada por cuatro agencias del norte. <span class="kt o">AP, UPI, Reuters, AFP</span>. Nosotros no contamos nuestra historia. Nos la cuentan ellos.</p>
-          <div class="cuento-callout naranja"><strong>Libre flujo ≠ flujo equilibrado:</strong> en un sistema asimétrico, libertad de flujo significa que los países centrales emiten y los periféricos reciben. Equilibrado implica redistribuir ese poder.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">📰</span><span class="bloque-titulo">Argel, 1973 — La denuncia</span></div>
+        <div class="cuento-texto"><p>Los jefes de Estado de los Países No Alineados dijeron algo que parecía obvio pero que nadie había dicho tan fuerte: la información que recibimos del mundo nos llega procesada por cuatro agencias del norte. <span class="kt o">AP, UPI, Reuters, AFP</span>. Nosotros no contamos nuestra historia. Nos la cuentan ellos.</p><div class="cuento-callout naranja"><strong>Libre flujo ≠ flujo equilibrado:</strong> en un sistema asimétrico, libertad de flujo significa que los países centrales emiten y los periféricos reciben.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📜</span>
-          <span class="bloque-titulo">MacBride, 1980 — La cima y el principio del fin</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Todo confluyó en Belgrado en 1980, cuando la UNESCO aprobó el <span class="kt a">Informe MacBride: Un solo mundo, voces múltiples</span>. El documento más ambicioso que había producido un organismo supranacional sobre democratización de la comunicación. Fue también el principio del fin.</p>
-          <p>Reagan acababa de llegar a la Casa Blanca. Thatcher gobernaba el Reino Unido. Acusaron a la UNESCO de haberse politizado al servicio del bloque soviético. En 1984 y 1985 respectivamente se <span class="kt r">retiraron del organismo</span>, llevándose una porción enorme del presupuesto. La UNESCO quedó vaciada.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">📜</span><span class="bloque-titulo">MacBride, 1980 — La cima y el principio del fin</span></div>
+        <div class="cuento-texto"><p>Todo confluyó en Belgrado en 1980, cuando la UNESCO aprobó el <span class="kt a">Informe MacBride: Un solo mundo, voces múltiples</span>. Reagan acababa de llegar a la Casa Blanca. Thatcher gobernaba el Reino Unido. Acusaron a la UNESCO de haberse politizado. En 1984 y 1985 respectivamente se <span class="kt r">retiraron del organismo</span>, llevándose una porción enorme del presupuesto.</p></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">💸</span>
-          <span class="bloque-titulo">Los 80 — Mientras tanto, el mundo no se detuvo</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Tres procesos ocurrían simultáneamente. <strong>Primero</strong>, el neoliberalismo avanzaba sobre los medios: si en los 80 la compra de ABC costó 340 millones de dólares, en los 90 la fusión CBS-Viacom involucró 37.000 millones. Los medios se concentraban a velocidad exponencial.</p>
-          <p><strong>Segundo</strong>, la tecnología se convertía en ideología. Toffler, Negroponte, McLuhan: cada uno prometía que la tecnología democratizaría el mundo, eliminaría las jerarquías, conectaría a todos en igualdad.</p>
-          <p><strong>Tercero</strong>, internet nacía en secreto: en 1969 como ARPANET militar, expandiéndose hasta que en 1994 <span class="kt o">Al Gore viajó a Buenos Aires</span> para presentar las "autopistas de la información".</p>
-          <div class="cuento-callout naranja"><strong>La trampa de Gore:</strong> prometió el ágora ateniense del siglo XXI, pero sus cinco principios eran: inversión privada, competencia, acceso abierto, regulación flexible y acceso universal. Como la Atenas de Pericles: democracia proclamada, minoría que la ejerce.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🔄</span><span class="bloque-titulo">CMSI 2003-2005 — Los desplazamientos conceptuales</span></div>
+        <div class="cuento-texto"><p>Veinte años después de Belgrado, volvía a haber un debate multilateral. Pero todo había cambiado. La UNESCO fue reemplazada por la <span class="kt r">UIT</span> como organizadora: un organismo técnico cuyos órganos consultivos incluían a Siemens, Motorola, Bell, Alcatel, Ericsson y AT&amp;T.</p></div>
+        <div class="datos-strip"><span class="dato-chip">NOMIC → <strong>Sociedad de la Información</strong></span><span class="dato-chip">Desequilibrio informativo → <strong>Brecha digital</strong></span><span class="dato-chip">PIDC → <strong>Fondo de Solidaridad Digital</strong></span></div>
       </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🔄</span>
-          <span class="bloque-titulo">CMSI 2003-2005 — Los desplazamientos conceptuales</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Veinte años después de Belgrado, volvía a haber un debate multilateral. Pero todo había cambiado. La UNESCO fue reemplazada por la <span class="kt r">UIT</span> como organizadora: un organismo técnico cuyos órganos consultivos incluían a Siemens, Motorola, Bell, Alcatel, Ericsson y AT&amp;T.</p>
-          <p>Y los conceptos fueron renombrados uno a uno:</p>
-        </div>
-        <div class="datos-strip">
-          <span class="dato-chip">NOMIC → <strong>Sociedad de la Información</strong></span>
-          <span class="dato-chip">Desequilibrio informativo → <strong>Brecha digital</strong></span>
-          <span class="dato-chip">Acceso y participación → <strong>Acceso digital</strong></span>
-          <span class="dato-chip">PIDC → <strong>Fondo de Solidaridad Digital</strong></span>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">💡</span>
-          <span class="bloque-titulo">Lo que quedó — La lección central</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Pero los autores no terminan en la denuncia pura. La sociedad civil apareció por primera vez como actor relevante. Las organizaciones civiles lograron articular posiciones comunes sobre derechos humanos, medios comunitarios, software libre, diversidad cultural.</p>
-          <p>La hipótesis de fondo: la frustración del proceso MacBride es una lección, no una derrota definitiva. El debate sigue siendo político. El cambio de nombre de los conceptos <span class="kt r">no es inocente</span>: es parte de la batalla.</p>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  <!-- CUENTO 4: EXENI -->
   <div class="cuento-panel" id="cuento3">
     <div class="cuento-header">
       <div class="cuento-icon">🗺️</div>
@@ -976,93 +511,16 @@ footer strong { color: var(--accent1); }
       </div>
     </div>
     <div class="cuento-body">
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🌱</span>
-          <span class="bloque-titulo">El giro — El Estado como campo de batalla</span>
-        </div>
-        <div class="cuento-texto">
-          <p>La tradición marxista clásica veía al Estado como instrumento de la clase dominante. Pero a principios de los 70, influenciada por Gramsci y por experiencias concretas, la investigación latinoamericana empezó a ver al Estado como un espacio de disputa donde distintos actores pueden ejercer presión y conquistar posiciones.</p>
-          <div class="cuento-callout verde"><strong>Consecuencia:</strong> una vez que el Estado deja de verse como enemigo irreformable, se abre la posibilidad de reclamarle que regule e intervenga en comunicación a favor del interés público.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🇨🇷</span><span class="bloque-titulo">Costa Rica, 1976 — El momento más alto y la derrota</span></div>
+        <div class="cuento-texto"><p>La Primera Conferencia Intergubernamental sobre Políticas de Comunicación en América Latina se realizó en San José en julio de 1976. El contexto no podía ser peor: con excepción de México, Costa Rica, Venezuela y Colombia, todos los demás países eran dictaduras.</p><div class="cuento-callout rojo"><strong>Triple déficit del Espíritu de Costa Rica:</strong> (a) de oportunidad → llegó tarde; (b) de pertinencia → avanzó mal, sin representatividad política necesaria; (c) de legitimidad → nació desnaturalizado bajo presión de SIP y AIR.</div></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🎓</span>
-          <span class="bloque-titulo">Bogotá, 1974 — Los expertos se reúnen</span>
-        </div>
-        <div class="cuento-texto">
-          <p>La UNESCO convocó a <span class="kt a">17 especialistas de 14 países</span> en Bogotá para preparar la gran conferencia intergubernamental. Luis Ramiro Beltrán presentó un documento de 100 párrafos que definía por primera vez qué eran las PNC.</p>
-          <p>Las recomendaciones: PNC globales, explícitas, interdisciplinarias. Superación de la falacia que equiparaba libertad de expresión con libertad de empresa. Defensa de las culturas nacionales. Participación de todos los sectores sociales.</p>
-          <div class="cuento-callout rojo"><strong>El documento desapareció:</strong> se convirtió rápidamente en el "fantasma de las organizaciones patronales de medios" y fue eliminado como material preparatorio de la conferencia antes de que esta se realizara.</div>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🔥</span><span class="bloque-titulo">El final — La utopía que no se rinde</span></div>
+        <div class="cuento-texto"><p>Pero Exeni no termina en la derrota. El libro se llama <em>Políticas de comunicación: andares y señales para no renunciar a la utopía</em>. Lo que cambió, dice Exeni, son las condiciones. La pregunta que deja abierta es la misma que recorre todo el curso: ¿quién controla la palabra pública, en nombre de quién, y a favor de quién?</p></div>
       </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🇨🇷</span>
-          <span class="bloque-titulo">Costa Rica, 1976 — El momento más alto y la derrota</span>
-        </div>
-        <div class="cuento-texto">
-          <p>La Primera Conferencia Intergubernamental sobre Políticas de Comunicación en América Latina se realizó en San José en julio de 1976. Era el momento de traducir todo el debate teórico en compromisos políticos reales.</p>
-          <p>El contexto no podía ser peor: con excepción de México, Costa Rica, Venezuela y Colombia, todos los demás países eran dictaduras. Solo <span class="kt r">cuatro ministros</span> en total. El resto eran viceministros o embajadores locales, sin poder de decisión.</p>
-          <p>Y la SIP y la AIR orquestaban desde afuera una campaña feroz: inundaron la prensa, confundieron los debates, boicotearon los documentos reales, lograron incluso que la ministra costarricense que encabezaba la iniciativa renunciara.</p>
-          <div class="cuento-callout rojo"><strong>Triple déficit del Espíritu de Costa Rica:</strong>
-            (a) de oportunidad → llegó tarde, cuando varios gobiernos ya habían dado marcha atrás;<br>
-            (b) de pertinencia → avanzó mal, sin representatividad política necesaria;<br>
-            (c) de legitimidad → nació desnaturalizado, bajo presión de SIP y AIR.
-          </div>
-          <p>Los documentos que sobrevivieron eran tan vagos que no obligaban a nada. Raquel Salinas los llamó <em>"fósiles de una historia que nadie conoce"</em>.</p>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🏳️</span>
-          <span class="bloque-titulo">Los intentos concretos — Héroes y derrotas</span>
-        </div>
-        <div class="cuento-texto">
-          <p><strong>🇲🇽 México:</strong> el más ambicioso. En 1978 incorporaron el derecho a la información en la Constitución. La regulación que debía darle cuerpo fracasó por presión de los medios privados. El tema terminó archivado.</p>
-          <p><strong>🇵🇪 Perú:</strong> el más radical. Velasco Alvarado formuló la ley de radiodifusión más avanzada que había tenido América Latina. Expropió los grandes diarios. Fue revertido cuando cayó Velasco.</p>
-          <p><strong>🇻🇪 Venezuela:</strong> mayor claridad conceptual, cero efectos prácticos. El proyecto RATELVE fue relegado y truncado sin implementarse. Primera país en incorporar la comunicación en su Plan Quinquenal.</p>
-          <p><strong>🇧🇷 Brasil:</strong> la paradoja mayor: fue el primero en formular una PNC, pero lo hizo un <span class="kt r">gobierno militar conservador</span> en 1975. El Proyecto RADIOBRAS se frustró.</p>
-        </div>
-        <div class="datos-strip">
-          <span class="dato-chip">🇨🇱 Chile → borrado con el golpe</span>
-          <span class="dato-chip">🇨🇺 Cuba → sistema centralizado estatal</span>
-          <span class="dato-chip">🇳🇮 Nicaragua → monopolio estatal TV</span>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">💀</span>
-          <span class="bloque-titulo">La derrota final y el entierro del tema</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Después de San José el debate continuó, pero ya no en América Latina: Kuala Lumpur (Malasia) en 1979, Yaundé (Camerún) en 1980. El Informe MacBride dedicó una de sus conclusiones a las PNC. Y luego: se mandó a callar.</p>
-          <p>Los impulsores del movimiento no habían logrado arraigar la idea en los actores que podían sostenerla: los partidos políticos, los sindicatos, las fuerzas progresistas. Sin base social organizada, la idea de PNC democráticas quedó tendida en el camino.</p>
-          <p>La razón común en todos los casos fue siempre la misma: la oposición unánime de los propietarios privados usando el mismo argumento: <em>"cualquier intervención estatal en los medios es el comienzo del totalitarismo y el fin de la libertad de expresión"</em>.</p>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🔥</span>
-          <span class="bloque-titulo">El final — La utopía que no se rinde</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Pero Exeni no termina en la derrota. El libro se llama <em>Políticas de comunicación: andares y señales para no renunciar a la utopía</em>. Y esa negativa a rendirse es el corazón del texto.</p>
-          <p>Lo que cambió, dice Exeni, son las condiciones. Las estrategias de acción deben adecuarse a esas nuevas condiciones en lugar de reeditar las formas de los 70 que ya mostraron sus límites. La pregunta que deja abierta es la misma que recorre todo el curso: ¿quién controla la palabra pública, en nombre de quién, y a favor de quién?</p>
-        </div>
-      </div>
-
     </div>
   </div>
-
-  <!-- CUENTO 5: MAREA ROSA -->
   <div class="cuento-panel" id="cuento4">
     <div class="cuento-header">
       <div class="cuento-icon">🌹</div>
@@ -1073,76 +531,21 @@ footer strong { color: var(--accent1); }
       </div>
     </div>
     <div class="cuento-body">
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🗳️</span>
-          <span class="bloque-titulo">El punto de partida — El fracaso del neoliberalismo</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Para entender por qué llegó la marea rosa hay que entender lo que dejó el Consenso de Washington. Durante los 90, casi todos los países latinoamericanos aplicaron la misma receta: privatizar, desregular, abrir los mercados, reducir el Estado. El resultado fue más pobreza, más desigualdad, más exclusión.</p>
-          <p>Y en ese clima de desencanto, empezaron a llegar al poder líderes y movimientos que prometían exactamente lo contrario: recuperar el Estado, redistribuir la riqueza, incluir a los excluidos.</p>
-        </div>
-        <div class="datos-strip">
-          <span class="dato-chip">🇻🇪 Chávez → 1998</span>
-          <span class="dato-chip">🇧🇷 Lula → 2003</span>
-          <span class="dato-chip">🇦🇷 Kirchner → 2003</span>
-          <span class="dato-chip">🇧🇴 Evo → 2006</span>
-          <span class="dato-chip">🇪🇨 Correa → 2007</span>
-          <span class="dato-chip">🇺🇾 Mujica → 2010</span>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🗳️</span><span class="bloque-titulo">El punto de partida — El fracaso del neoliberalismo</span></div>
+        <div class="cuento-texto"><p>Para entender por qué llegó la marea rosa hay que entender lo que dejó el Consenso de Washington: más pobreza, más desigualdad, más exclusión.</p></div>
+        <div class="datos-strip"><span class="dato-chip">🇻🇪 Chávez → 1998</span><span class="dato-chip">🇧🇷 Lula → 2003</span><span class="dato-chip">🇦🇷 Kirchner → 2003</span><span class="dato-chip">🇧🇴 Evo → 2006</span><span class="dato-chip">🇪🇨 Correa → 2007</span><span class="dato-chip">🇺🇾 Mujica → 2010</span></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">📚</span>
-          <span class="bloque-titulo">La teoría crítica finalmente en el gobierno</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Lo que hace interesante este momento para el curso es la conexión con todo lo anterior. Los argumentos que estos gobiernos usaron para justificar sus reformas venían directamente de la tradición crítica latinoamericana de los años 60 y 70: Pasquali, Beltrán, Mattelart, el Informe MacBride. Décadas de diagnóstico académico que nunca habían encontrado traducción política encontraron, de repente, gobiernos dispuestos a usarlos.</p>
-          <p>Los autores distinguen <span class="kt a">dos modelos</span>. Uno de <strong>convivencia pacífica</strong> (Chile, primer kirchnerismo, Brasil): reformas con discurso moderado. Otro de <strong>confrontación hegemónica</strong> (Venezuela, Ecuador, Bolivia, kirchnerismo post-2009): enfrentamiento directo con los grandes grupos mediáticos.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">⚖️</span><span class="bloque-titulo">Las reformas concretas — Tres frentes</span></div>
+        <div class="cuento-texto"><p><strong>1. Regular medios privados:</strong> límites a la concentración. La más ambiciosa fue la <span class="kt g">LSCA argentina 2009</span>, con límites y plazo de adecuación apuntando directamente al Grupo Clarín.</p><p><strong>2. Potenciar medios públicos:</strong> Argentina creó RTA con cuatro señales. Se construyeron agencias de noticias propias.</p><p><strong>3. Reservar espectro para comunitarios:</strong> Argentina, Ecuador, Uruguay y Bolivia establecieron el principio del <span class="kt p">tercio</span>: un tercio del espectro para medios privados comerciales, un tercio para medios públicos, un tercio para medios sin fines de lucro.</p></div>
       </div>
-
       <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">⚖️</span>
-          <span class="bloque-titulo">Las reformas concretas — Tres frentes</span>
-        </div>
-        <div class="cuento-texto">
-          <p><strong>1. Regular los medios privados:</strong> casi todas las nuevas leyes incluyeron límites a la concentración. La más ambiciosa fue la <span class="kt g">LSCA argentina 2009</span>, con límites y plazo de adecuación apuntando directamente al Grupo Clarín. También cuotas de producción nacional.</p>
-          <p><strong>2. Potenciar los medios públicos:</strong> donde no había televisión pública se creó (TV Perú, Ecuador TV, Bolivia TV, TV Pública PY). Venezuela llegó a tener seis canales de televisión pública. Argentina creó RTA con cuatro señales. Se construyeron agencias de noticias propias para no depender de las transnacionales.</p>
-          <p><strong>3. Reservar espectro para medios comunitarios:</strong> Argentina, Ecuador, Uruguay y Bolivia establecieron el principio del <span class="kt p">tercio</span>: un tercio del espectro para medios privados comerciales, un tercio para medios públicos, un tercio para medios sin fines de lucro.</p>
-        </div>
+        <div class="cuento-bloque-header"><span class="bloque-emoji">🔮</span><span class="bloque-titulo">El balance final</span></div>
+        <div class="cuento-texto"><p>La conclusión que dejan los autores: las políticas de comunicación son siempre un <span class="kt p">acto político</span>. Su resultado depende no solo de las intenciones declaradas sino de las relaciones de poder que las rodean. El MacBride no se equivocó. Nunca se implementó. Y cada vez que alguien intenta implementarlo, la batalla recomienza.</p></div>
       </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">⚡</span>
-          <span class="bloque-titulo">La trampa — Activismo mediático vs. democratización genuina</span>
-        </div>
-        <div class="cuento-texto">
-          <p>Pero los autores señalan una tensión que atraviesa todas estas experiencias: la diferencia entre <span class="kt g">democratizar los medios</span> y <span class="kt r">usar los medios para consolidar poder político</span>.</p>
-          <p>Kitzberger lo llama <span class="kt a">activismo mediático</span> y describe tres dimensiones que se mezclan peligrosamente: el discurso que critica a los medios privados y mina su credibilidad, la estrategia de bypass mediático (cadenas nacionales obligatorias), y la regulación propiamente dicha.</p>
-          <div class="cuento-callout rojo"><strong>El caso venezolano extremo:</strong> la ley de comunicación comunitaria llegó a establecer explícitamente que los medios comunitarios debían estar comprometidos con el impulso al Poder Popular organizado en Consejos Comunales. La línea entre medio comunitario y brazo político del gobierno se borraba completamente.</div>
-        </div>
-      </div>
-
-      <div class="cuento-bloque">
-        <div class="cuento-bloque-header">
-          <span class="bloque-emoji">🔮</span>
-          <span class="bloque-titulo">El balance final — La historia fue mixta</span>
-        </div>
-        <div class="cuento-texto">
-          <p>La marea rosa había logrado lo que la academia no había podido en décadas: poner la democratización de la comunicación en la agenda política real.</p>
-          <p>Sabemos hoy que la historia fue mixta. Algunas reformas sobrevivieron. Otras fueron revertidas: el Grupo Clarín recuperó posiciones bajo el gobierno de Macri. En Venezuela el sistema mediático público se convirtió en lo que sus críticos temían. En Uruguay y Chile los cambios fueron más modestos pero más duraderos.</p>
-          <p>La conclusión que dejan los autores: las políticas de comunicación son siempre un <span class="kt p">acto político</span>. Su resultado depende no solo de las intenciones declaradas sino de las relaciones de poder que las rodean. El MacBride no se equivocó. Nunca se implementó. Y cada vez que alguien intenta implementarlo, la batalla recomienza.</p>
-        </div>
-      </div>
-
     </div>
   </div>
-
 </section>
 
 <!-- U1 -->
@@ -1152,42 +555,12 @@ footer strong { color: var(--accent1); }
     <h2 class="section-title">Estado y políticas públicas</h2>
   </div>
   <div class="concept-grid">
-    <div class="concept-card c1">
-      <div class="card-label">Estado</div>
-      <h4>Relación social</h4>
-      <p>No es árbitro neutral. Condensa poderes sociales y los devuelve como políticas, omisiones e impactos.</p>
-      <div class="author">O'Donnell / Califano</div>
-    </div>
-    <div class="concept-card c2">
-      <div class="card-label">Distinción clave</div>
-      <h4>Politics vs. Policy</h4>
-      <p>Politics = lucha electoral y representación. Policy = acción concreta del Estado en un área específica.</p>
-      <div class="author">Valles / Califano</div>
-    </div>
-    <div class="concept-card c1">
-      <div class="card-label">Ciclo de políticas</div>
-      <h4>4 etapas</h4>
-      <p>Iniciación → Elaboración → Implantación → Evaluación y sucesión.</p>
-      <div class="author">Valles</div>
-    </div>
-    <div class="concept-card c5">
-      <div class="card-label">Modelos de decisión</div>
-      <h4>4 modelos</h4>
-      <p>Racionalidad radical (optimizar) · Limitada (satisfacer) · Incremental (ajuste mutuo) · Garbage can (casualidad).</p>
-      <div class="author">Valles</div>
-    </div>
-    <div class="concept-card c3">
-      <div class="card-label">Tipos de política</div>
-      <h4>Categorías de Lowi</h4>
-      <p>Regulativas · Distributivas · Redistributivas · Institucionales. Las regulativas imponen condiciones a todos.</p>
-      <div class="author">Valles</div>
-    </div>
-    <div class="concept-card c4">
-      <div class="card-label">Escuelas</div>
-      <h4>Pluralista vs. Crítica</h4>
-      <p>Pluralista: poder disperso, consenso posible. Crítica: poder desigual, regulaciones favorecen a los dominantes.</p>
-      <div class="author">Califano</div>
-    </div>
+    <div class="concept-card c1"><div class="card-label">Estado</div><h4>Relación social</h4><p>No es árbitro neutral. Condensa poderes sociales y los devuelve como políticas, omisiones e impactos.</p><div class="author">O'Donnell / Califano</div></div>
+    <div class="concept-card c2"><div class="card-label">Distinción clave</div><h4>Politics vs. Policy</h4><p>Politics = lucha electoral y representación. Policy = acción concreta del Estado en un área específica.</p><div class="author">Valles / Califano</div></div>
+    <div class="concept-card c1"><div class="card-label">Ciclo de políticas</div><h4>4 etapas</h4><p>Iniciación → Elaboración → Implantación → Evaluación y sucesión.</p><div class="author">Valles</div></div>
+    <div class="concept-card c5"><div class="card-label">Modelos de decisión</div><h4>4 modelos</h4><p>Racionalidad radical (optimizar) · Limitada (satisfacer) · Incremental (ajuste mutuo) · Garbage can (casualidad).</p><div class="author">Valles</div></div>
+    <div class="concept-card c3"><div class="card-label">Tipos de política</div><h4>Categorías de Lowi</h4><p>Regulativas · Distributivas · Redistributivas · Institucionales. Las regulativas imponen condiciones a todos.</p><div class="author">Valles</div></div>
+    <div class="concept-card c4"><div class="card-label">Escuelas</div><h4>Pluralista vs. Crítica</h4><p>Pluralista: poder disperso, consenso posible. Crítica: poder desigual, regulaciones favorecen a los dominantes.</p><div class="author">Califano</div></div>
   </div>
 </section>
 
@@ -1197,55 +570,13 @@ footer strong { color: var(--accent1); }
     <span class="section-num u2">U2</span>
     <h2 class="section-title">Historia argentina y debate internacional</h2>
   </div>
-
-  <div class="timeline">
-    <div class="tl-item danger">
-      <div class="tl-year">1980 — Videla</div>
-      <div class="tl-law">Ley 22.285</div>
-      <div class="tl-desc">COMFER con militares. Excluye sin fines de lucro. Art. 114 renueva licencias automáticamente. Rige hasta 2009.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">1989 — Menem</div>
-      <div class="tl-law">Ley 23.696 — Reforma del Estado</div>
-      <div class="tl-desc">Privatiza canales 11 y 13. Nace Telefé (Atlántida) y Clarín TV. Habilita multimedios.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2005 — Kirchner</div>
-      <div class="tl-law">Decreto 527/05</div>
-      <div class="tl-desc">"Ficción jurídica": suspende el cómputo de licencias por 10 años. A pedido de las patronales. Profundiza concentración.</div>
-    </div>
-    <div class="tl-item highlight">
-      <div class="tl-year">2009 — CFK</div>
-      <div class="tl-law">LSCA 26.522</div>
-      <div class="tl-desc">Los tres tercios (estatal/privado/sin fines de lucro). AFSCA plural. Defensor del Público. Cuotas de producción. Fútbol para Todos.</div>
-    </div>
-    <div class="tl-item danger">
-      <div class="tl-year">2015 — Macri (19 días después)</div>
-      <div class="tl-law">DNU 267/15</div>
-      <div class="tl-desc">Cable = TIC (sin topes). Elimina art. 161. ENACOM con mayoría oficialista. Habilita megafusión Cablevisión-Telecom 2018.</div>
-    </div>
-  </div>
-
-  <br>
   <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.2rem;font-size:1.1rem;">NOMIC → MacBride → CMSI</h3>
   <div class="nomic-flow">
-    <div class="nomic-node">
-      <div class="year">Años 70</div>
-      <h5>NOMIC / MPNA</h5>
-      <p>Países No Alineados piden flujo equilibrado. Cuestionan dominio de AP, UPI, Reuters, AFP.</p>
-    </div>
+    <div class="nomic-node"><div class="year">Años 70</div><h5>NOMIC / MPNA</h5><p>Países No Alineados piden flujo equilibrado. Cuestionan dominio de AP, UPI, Reuters, AFP.</p></div>
     <div class="nomic-arrow">→</div>
-    <div class="nomic-node">
-      <div class="year">1980</div>
-      <h5>Informe MacBride</h5>
-      <p>UNESCO Belgrado. Comunicar = derecho humano. EEUU y UK se retiran de la UNESCO en 1984.</p>
-    </div>
+    <div class="nomic-node"><div class="year">1980</div><h5>Informe MacBride</h5><p>UNESCO Belgrado. Comunicar = derecho humano. EEUU y UK se retiran de la UNESCO en 1984.</p></div>
     <div class="nomic-arrow">→</div>
-    <div class="nomic-node">
-      <div class="year">2003–2005</div>
-      <h5>CMSI</h5>
-      <p>UNESCO → UIT. Desequilibrio informativo → "brecha digital". Lógica de mercado dominante.</p>
-    </div>
+    <div class="nomic-node"><div class="year">2003–2005</div><h5>CMSI</h5><p>UNESCO → UIT. Desequilibrio informativo → "brecha digital". Lógica de mercado dominante.</p></div>
   </div>
 </section>
 
@@ -1255,32 +586,14 @@ footer strong { color: var(--accent1); }
     <span class="section-num u3">U3</span>
     <h2 class="section-title">Concentración e industrias culturales</h2>
   </div>
-
   <div class="conc-grid">
-    <div class="conc-card conc-econ">
-      <h5>Dimensión económica</h5>
-      <p>Eficiencia de mercado. CR4 supera el 80% en América Latina. Fusiones y economías de escala.</p>
-    </div>
-    <div class="conc-card conc-simb">
-      <h5>Dimensión simbólica</h5>
-      <p>Específica de bienes culturales. Reduce fuentes informativas. Homogeneiza géneros. Amenaza pluralismo y democracia.</p>
-    </div>
+    <div class="conc-card conc-econ"><h5>Dimensión económica</h5><p>Eficiencia de mercado. CR4 supera el 80% en América Latina. Fusiones y economías de escala.</p></div>
+    <div class="conc-card conc-simb"><h5>Dimensión simbólica</h5><p>Específica de bienes culturales. Reduce fuentes informativas. Homogeneiza géneros. Amenaza pluralismo y democracia.</p></div>
   </div>
-
   <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin:1.5rem 0 1rem;font-size:1.1rem;">Plataformas: ¿son medios? — Napoli & Caplan</h3>
   <div class="plat-cols">
-    <div class="plat-col excusas">
-      <h5>Sus 3 excusas</h5>
-      <div class="plat-item">"No producimos contenido propio"</div>
-      <div class="plat-item">"Somos ingenieros, no editores"</div>
-      <div class="plat-item">"No hay intervención editorial humana"</div>
-    </div>
-    <div class="plat-col rebate">
-      <h5>Las 3 refutaciones</h5>
-      <div class="plat-item">La distribución siempre fue definitoria de los medios (ej: TV cable)</div>
-      <div class="plat-item">La radiodifusión siempre fue campo de tecnólogos (RCA, Marconi)</div>
-      <div class="plat-item">Argumento clave: compiten por ingresos publicitarios igual que la TV</div>
-    </div>
+    <div class="plat-col excusas"><h5>Sus 3 excusas</h5><div class="plat-item">"No producimos contenido propio"</div><div class="plat-item">"Somos ingenieros, no editores"</div><div class="plat-item">"No hay intervención editorial humana"</div></div>
+    <div class="plat-col rebate"><h5>Las 3 refutaciones</h5><div class="plat-item">La distribución siempre fue definitoria de los medios (ej: TV cable)</div><div class="plat-item">La radiodifusión siempre fue campo de tecnólogos (RCA, Marconi)</div><div class="plat-item">Argumento clave: compiten por ingresos publicitarios igual que la TV</div></div>
   </div>
 </section>
 
@@ -1290,120 +603,39 @@ footer strong { color: var(--accent1); }
     <span class="section-num u4">U4</span>
     <h2 class="section-title">Marcos regulatorios comparados</h2>
   </div>
-
   <div class="phases">
-    <div class="phase-card ph1">
-      <div class="pnum">Fase I — hasta 1945</div>
-      <h4>Industria emergente</h4>
-      <p>Reglas ad hoc. Separación por tecnología (prensa / teleco / radio). Lógica técnica y comercial.</p>
-    </div>
-    <div class="phase-card ph2">
-      <div class="pnum">Fase II — 1945–1980</div>
-      <h4>Servicio público</h4>
-      <p>Posguerra. Lógica normativa y sociopolítica. BBC, RAI. Radiodifusión como bien público.</p>
-    </div>
-    <div class="phase-card ph3">
-      <div class="pnum">Fase III — desde Reagan</div>
-      <h4>Nuevo paradigma</h4>
-      <p>Mercado + convergencia. Privatización y desregulación. Lógica económica y tecnológica.</p>
-    </div>
+    <div class="phase-card ph1"><div class="pnum">Fase I — hasta 1945</div><h4>Industria emergente</h4><p>Reglas ad hoc. Separación por tecnología (prensa / teleco / radio). Lógica técnica y comercial.</p></div>
+    <div class="phase-card ph2"><div class="pnum">Fase II — 1945–1980</div><h4>Servicio público</h4><p>Posguerra. Lógica normativa y sociopolítica. BBC, RAI. Radiodifusión como bien público.</p></div>
+    <div class="phase-card ph3"><div class="pnum">Fase III — desde Reagan</div><h4>Nuevo paradigma</h4><p>Mercado + convergencia. Privatización y desregulación. Lógica económica y tecnológica.</p></div>
   </div>
-
   <br>
   <div class="concept-grid">
-    <div class="concept-card c4">
-      <div class="card-label">Hallin & Mancini</div>
-      <h4>Modelo liberal</h4>
-      <p>Libre mercado, mínima intervención. EEUU, GB, Irlanda.</p>
-    </div>
-    <div class="concept-card c4">
-      <div class="card-label">Hallin & Mancini</div>
-      <h4>Dem. Corporativista</h4>
-      <p>Medios comerciales + grupos sociales. Rol estatal moderado. Norte de Europa.</p>
-    </div>
-    <div class="concept-card c4">
-      <div class="card-label">Hallin & Mancini</div>
-      <h4>Pluralista Polarizado</h4>
-      <p>Medios vinculados a partidos, fuerte rol estatal. Sur de Europa / América Latina.</p>
-    </div>
-    <div class="concept-card c2">
-      <div class="card-label">Flew</div>
-      <h4>Estado-nación persiste</h4>
-      <p>Rechaza la "tesis del Estado en desaparición". Los medios convergen tecnológicamente pero las políticas divergen.</p>
-    </div>
-    <div class="concept-card c1">
-      <div class="card-label">Puppis</div>
-      <h4>Regulación vs. Gobernanza</h4>
-      <p>Regulación = norma legal específica. Gobernanza = conjunto total de mecanismos formales e informales.</p>
-    </div>
-    <div class="concept-card c5">
-      <div class="card-label">McQuail</div>
-      <h4>6 aspectos regulados</h4>
-      <p>Estructura · Infraestructura · Distribución · Acceso · Conducta · Contenidos.</p>
-    </div>
+    <div class="concept-card c4"><div class="card-label">Hallin & Mancini</div><h4>Modelo liberal</h4><p>Libre mercado, mínima intervención. EEUU, GB, Irlanda.</p></div>
+    <div class="concept-card c4"><div class="card-label">Hallin & Mancini</div><h4>Dem. Corporativista</h4><p>Medios comerciales + grupos sociales. Rol estatal moderado. Norte de Europa.</p></div>
+    <div class="concept-card c4"><div class="card-label">Hallin & Mancini</div><h4>Pluralista Polarizado</h4><p>Medios vinculados a partidos, fuerte rol estatal. Sur de Europa / América Latina.</p></div>
+    <div class="concept-card c2"><div class="card-label">Flew</div><h4>Estado-nación persiste</h4><p>Rechaza la "tesis del Estado en desaparición". Los medios convergen tecnológicamente pero las políticas divergen.</p></div>
+    <div class="concept-card c1"><div class="card-label">Puppis</div><h4>Regulación vs. Gobernanza</h4><p>Regulación = norma legal específica. Gobernanza = conjunto total de mecanismos formales e informales.</p></div>
+    <div class="concept-card c5"><div class="card-label">McQuail</div><h4>6 aspectos regulados</h4><p>Estructura · Infraestructura · Distribución · Acceso · Conducta · Contenidos.</p></div>
   </div>
 </section>
 
-<!-- LEYES -->
+<!-- LEYES — línea del tiempo -->
 <section id="leyes">
   <div class="section-header">
     <span class="section-num leyes">leyes</span>
-    <h2 class="section-title">Tabla de leyes y decretos</h2>
+    <h2 class="section-title">Línea del tiempo de la regulación argentina</h2>
   </div>
-  <table class="law-table">
-    <thead>
-      <tr>
-        <th>Número</th>
-        <th>Gobierno</th>
-        <th>Qué hace</th>
-        <th>Clave para recordar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="law-num">22.285</span></td>
-        <td><span class="pres">Videla / 1980</span></td>
-        <td>Primera ley sistemática de radiodifusión. COMFER con militares. Excluye sin fines de lucro.</td>
-        <td>Art. 114 renueva licencias automáticamente. Rige hasta 2009.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">23.696</span></td>
-        <td><span class="pres">Menem / 1989</span></td>
-        <td>Ley de Reforma del Estado. Privatiza canales 11 y 13. Habilita multimedios.</td>
-        <td>Canal 11 → Telefé (Atlántida). Canal 13 → Clarín.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">25.750</span></td>
-        <td><span class="pres">Duhalde / 2003</span></td>
-        <td>"Ley Clarín". Tope 30% capital extranjero. Excluye medios del cram down.</td>
-        <td>Protege exactamente los negocios del Grupo Clarín.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">Dto. 527/05</span></td>
-        <td><span class="pres">Kirchner / 2005</span></td>
-        <td>Suspende el cómputo de licencias por 10 años.</td>
-        <td>"Ficción jurídica". A pedido de las patronales. Profundiza concentración.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">26.522</span></td>
-        <td><span class="pres">CFK / 2009</span></td>
-        <td>LSCA. Tres tercios del espectro. AFSCA plural. Defensor del Público. Fútbol para Todos.</td>
-        <td>Fallo CSJN 2013 la declara constitucional. Grupo Clarín la impugna judicialmente.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">27.078</span></td>
-        <td><span class="pres">CFK / 2014</span></td>
-        <td>Argentina Digital. TIC como servicio público. Neutralidad de red.</td>
-        <td>Nunca llegó a reglamentarse. DNU 267/15 la deroga en parte.</td>
-      </tr>
-      <tr>
-        <td><span class="law-num">DNU 267/15</span></td>
-        <td><span class="pres">Macri / dic. 2015</span></td>
-        <td>Desmonta la LSCA. Cable = TIC (sin topes). Crea ENACOM con mayoría oficialista.</td>
-        <td>A 19 días de asumir. Elimina el art. 161 (plazo de adecuación).</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div class="tl-filter-bar" id="tl-filters">
+    <button class="filter-btn f-all active" data-f="all">Todo</button>
+    <button class="filter-btn f-ley" data-f="ley">Leyes</button>
+    <button class="filter-btn f-decreto" data-f="decreto">Decretos / DNU</button>
+    <button class="filter-btn f-hito" data-f="hito">Hitos</button>
+    <button class="filter-btn f-ok" data-f="ok">Avances democráticos</button>
+    <button class="filter-btn f-conflicto" data-f="conflicto">Retrocesos</button>
+  </div>
+
+  <div id="tl-container"></div>
 </section>
 
 <!-- DISTINCIONES -->
@@ -1412,51 +644,22 @@ footer strong { color: var(--accent1); }
     <span class="section-num">pares</span>
     <h2 class="section-title">Distinciones que siempre confunden</h2>
   </div>
-
   <div class="distinction">
-    <div class="dist-side a">
-      <h5>Acceso (UNESCO 1977)</h5>
-      <p>Poder recibir materiales de comunicación y retroalimentar (comentar, criticar, interactuar con productores).</p>
-    </div>
-    <div class="dist-side b">
-      <h5>Participación (UNESCO 1977)</h5>
-      <p>Producir mensajes · intervenir en decisiones · formular políticas de comunicación. Es un escalón más alto que el acceso.</p>
-    </div>
+    <div class="dist-side a"><h5>Acceso (UNESCO 1977)</h5><p>Poder recibir materiales de comunicación y retroalimentar (comentar, criticar, interactuar con productores).</p></div>
+    <div class="dist-side b"><h5>Participación (UNESCO 1977)</h5><p>Producir mensajes · intervenir en decisiones · formular políticas de comunicación. Es un escalón más alto que el acceso.</p></div>
   </div>
-
   <div class="distinction">
-    <div class="dist-side a">
-      <h5>Medios estatales</h5>
-      <p>Controlados por el poder ejecutivo. Usados históricamente como voceros gubernamentales en Argentina.</p>
-    </div>
-    <div class="dist-side b">
-      <h5>Medios públicos</h5>
-      <p>Sirven a la ciudadanía. Incluyen comunitarios, universitarios. El ideal del servicio público europeo.</p>
-    </div>
+    <div class="dist-side a"><h5>Medios estatales</h5><p>Controlados por el poder ejecutivo. Usados históricamente como voceros gubernamentales en Argentina.</p></div>
+    <div class="dist-side b"><h5>Medios públicos</h5><p>Sirven a la ciudadanía. Incluyen comunitarios, universitarios. El ideal del servicio público europeo.</p></div>
   </div>
-
   <div class="distinction">
-    <div class="dist-side a">
-      <h5>Free speech tradition</h5>
-      <p>Solo exige que el Estado no censure. Protege al individuo pero no garantiza pluralismo.</p>
-    </div>
-    <div class="dist-side b">
-      <h5>Derecho humano a comunicar</h5>
-      <p>Impone obligaciones positivas al Estado: garantizar diversidad, acceso y pluralismo. Loreti & Lozano.</p>
-    </div>
+    <div class="dist-side a"><h5>Free speech tradition</h5><p>Solo exige que el Estado no censure. Protege al individuo pero no garantiza pluralismo.</p></div>
+    <div class="dist-side b"><h5>Derecho humano a comunicar</h5><p>Impone obligaciones positivas al Estado: garantizar diversidad, acceso y pluralismo. Loreti & Lozano.</p></div>
   </div>
-
   <div class="distinction">
-    <div class="dist-side a">
-      <h5>Regulación (Puppis/Freedman)</h5>
-      <p>Instrumentos legales específicos para alcanzar objetivos de política en medios.</p>
-    </div>
-    <div class="dist-side b">
-      <h5>Gobernanza de medios</h5>
-      <p>Suma total de mecanismos formales e informales, nacionales y supranacionales, que organizan los sistemas mediáticos.</p>
-    </div>
+    <div class="dist-side a"><h5>Regulación (Puppis/Freedman)</h5><p>Instrumentos legales específicos para alcanzar objetivos de política en medios.</p></div>
+    <div class="dist-side b"><h5>Gobernanza de medios</h5><p>Suma total de mecanismos formales e informales, nacionales y supranacionales, que organizan los sistemas mediáticos.</p></div>
   </div>
-
 </section>
 
 <footer>
@@ -1465,28 +668,223 @@ footer strong { color: var(--accent1); }
 </footer>
 
 <script>
-function showSong(i) {
-  document.querySelectorAll('.song-panel').forEach((p, idx) => p.classList.toggle('visible', idx === i));
-  document.querySelectorAll('.song-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+function showCuento(i){
+  document.querySelectorAll('.cuento-panel').forEach((p,idx)=>p.classList.toggle('visible',idx===i));
+  document.querySelectorAll('.cuento-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
 }
 
-function showCuento(i) {
-  document.querySelectorAll('.cuento-panel').forEach((p, idx) => p.classList.toggle('visible', idx === i));
-  document.querySelectorAll('.cuento-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
-}
-
-const navLinks = document.querySelectorAll('nav a');
-const sections = document.querySelectorAll('section[id]');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
-      if (link) link.classList.add('active');
+/* ——— NAV highlight ——— */
+const navLinks=document.querySelectorAll('nav a');
+const sections=document.querySelectorAll('section[id]');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const l=document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if(l)l.classList.add('active');
     }
   });
-}, { rootMargin: '-40% 0px -55% 0px' });
-sections.forEach(s => observer.observe(s));
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>obs.observe(s));
+
+/* ——— TIMELINE ——— */
+const TL_EVENTS = [
+  { year:"1920", gov:"Yrigoyen", era:"1920–1929 · Los orígenes de la radio",
+    norma:"Primera transmisión radial",
+    desc:"Susini, Mujica, Guerrico y Romero transmiten la ópera Parsifal desde el Teatro Coliseo con un transmisor de 5 vatios. Nace la primera radio de Argentina y la primera radio de habla hispana del mundo.",
+    tipo:"hito", url:null },
+
+  { year:"1922", gov:"Yrigoyen",
+    norma:"Ley 750/2 (1875) + Ley 9127",
+    desc:"El Estado aplica la ley de telégrafos de 1875 y la ley de telecomunicaciones de 1913 a la radio por falta de marco propio. Alegalidad fundacional del sistema.",
+    tipo:"hito", url:"https://www.argentina.gob.ar/normativa/nacional/ley-9127-58994" },
+
+  { year:"1924", gov:"Alvear",
+    norma:"Decreto de broadcasting",
+    desc:"Primer decreto regulatorio específico de radiodifusión. Nace la Asociación Argentina de Broadcasting.",
+    tipo:"decreto", url:null },
+
+  { year:"1929", gov:"Yrigoyen (2° mandato)",
+    norma:"Decreto de contenidos anticipados",
+    desc:"Los contenidos deben presentarse con 8 días de anticipación. Se establece cuota anual de uso de licencias. Primer intento de control editorial.",
+    tipo:"decreto", url:null },
+
+  { year:"1933", gov:"Uriburu / Justo", era:"1930–1945 · Interregnos y modelo privado comercial",
+    norma:"Decreto 21.044",
+    desc:"Establece por primera vez requisitos formales para acceder a una licencia de radiodifusión. Primer intento de ley integral —que no prosperará.",
+    tipo:"decreto", url:null },
+
+  { year:"1953", gov:"Perón", era:"1946–1955 · El peronismo y la primera ley democrática",
+    norma:"Ley 14.241",
+    desc:"Primera y única ley de radiodifusión sancionada democráticamente antes de la LSCA. Aprobada por el Congreso. Define estructura: propiedad estatal + privada. Principios de educación y federalismo.",
+    tipo:"ley", url:"https://www.argentina.gob.ar/normativa/nacional/ley-14241-32218" },
+
+  { year:"1955 sept.", gov:"Lonardi / Aramburu", era:"1955–1958 · La Revolución Libertadora",
+    norma:"Decreto 170/55 + Decreto 686/55",
+    desc:"El golpe decreta nulas todas las adjudicaciones peronistas. Interventores en todas las emisoras. El Estado confirma que administrará todo. Los propietarios quedan afuera.",
+    tipo:"conflicto", url:null },
+
+  { year:"1957", gov:"Aramburu",
+    norma:"Ley 15.460 + Decreto 16.531/57",
+    desc:"Nueva ley de radiodifusión: licencias por 15 años, máximo un canal y una radio por titular, prohibición del capital extranjero. Tres días antes de entregar el poder, adjudica canales 9, 11 y 13 en Buenos Aires.",
+    tipo:"ley", url:"https://www.argentina.gob.ar/normativa/nacional/ley-15460-230613" },
+
+  { year:"1958–1975", gov:"Frondizi → dictaduras", era:"1958–1975 · Consolidación del modelo privado-comercial",
+    norma:"Cadenas norteamericanas — ingreso informal",
+    desc:"NBC, CBS y ABC ingresan como socias tecnológicas sorteando la prohibición legal de capital extranjero. Se configura el modelo comercial-privado dominante con financiamiento publicitario.",
+    tipo:"hito", url:null },
+
+  { year:"1976", gov:"Videla (dictadura)", era:"1976–1983 · Dictadura y Ley 22.285",
+    norma:"Terrorismo de Estado y medios",
+    desc:"Intervención militar en todos los medios. Desaparición de periodistas. Papel Prensa S.A. transferida bajo coacción a Clarín, La Nación y La Razón.",
+    tipo:"conflicto", url:null },
+
+  { year:"1980", gov:"Videla",
+    norma:"Ley 22.285",
+    desc:"Primera ley sistemática de radiodifusión. COMFER con directores militares. Excluye a las organizaciones sin fines de lucro. Art. 114: renueva licencias automáticamente cada vez que vencen. Rige hasta 2009.",
+    tipo:"conflicto", url:"https://www.argentina.gob.ar/normativa/nacional/ley-22285-20436" },
+
+  { year:"1983", gov:"Alfonsín", era:"1983–1989 · Transición democrática",
+    norma:"Recuperación democrática — ley 22.285 continúa",
+    desc:"Argentina recupera la democracia pero la ley de la dictadura sigue vigente. Alfonsín discute reformas que no prosperan. Graziano (1988): 'se puso el carro antes que los bueyes'.",
+    tipo:"hito", url:null },
+
+  { year:"1989", gov:"Menem", era:"1989–2003 · El neoliberalismo y los multimedios",
+    norma:"Ley 23.696 — Reforma del Estado",
+    desc:"Privatización de canales 11 y 13. Canal 11 → Telefé (Atlántida). Canal 13 → Clarín. Habilita la formación de multimedios. La concentración privada reemplaza a la gubernamental.",
+    tipo:"conflicto", url:"https://www.argentina.gob.ar/normativa/nacional/ley-23696-16408" },
+
+  { year:"1990", gov:"Menem",
+    norma:"Decreto 1771/90 + Decreto 1005/99",
+    desc:"Se permiten cruces de licencias y aumenta el límite de licencias por titular. Nacen los primeros conglomerados mediáticos argentinos.",
+    tipo:"conflicto", url:null },
+
+  { year:"2003", gov:"Duhalde / inicio Kirchner", era:"2003–2008 · Los kirchnerismos y el proceso de reforma",
+    norma:"Ley 25.750 — 'Ley Clarín'",
+    desc:"Tope del 30% de capital extranjero en medios. Excluye a los medios del mecanismo de cram down (no pueden pasar a manos de acreedores extranjeros). Protege exactamente el modelo de negocios del Grupo Clarín.",
+    tipo:"ley", url:"https://www.argentina.gob.ar/normativa/nacional/ley-25750-84409" },
+
+  { year:"2005", gov:"Néstor Kirchner",
+    norma:"Decreto 527/05",
+    desc:"Suspende el cómputo del tiempo de las licencias por 10 años ('ficción jurídica'). Pedido por las propias cámaras empresariales. Profundiza la concentración en lugar de limitarla.",
+    tipo:"conflicto", url:"https://www.argentina.gob.ar/normativa/nacional/decreto-527-2005-105736" },
+
+  { year:"2008", gov:"CFK", era:"2008–2015 · La LSCA y la batalla por Clarín",
+    norma:"Ruptura CFK–Clarín — crisis del campo",
+    desc:"La 'crisis del campo' marca el quiebre. A partir de este momento la política de comunicación pasa al centro de la agenda pública argentina.",
+    tipo:"hito", url:null },
+
+  { year:"2009", gov:"CFK",
+    norma:"Ley 26.522 — LSCA",
+    desc:"Los tres tercios del espectro: estatal / privado comercial / sin fines de lucro. AFSCA con directorio pluralista. Defensor del Público. Cuotas de producción nacional. Fútbol para Todos. Límite de 10 licencias de cable y 1 canal abierto por titular.",
+    tipo:"ok", url:"https://www.argentina.gob.ar/normativa/nacional/ley-26522-152155" },
+
+  { year:"2013", gov:"CFK — CSJN",
+    norma:"Fallo CSJN — constitucionalidad de la LSCA",
+    desc:"La Corte Suprema declara la ley 26.522 constitucional en su totalidad. El Grupo Clarín había obtenido una cautelar que suspendía el art. 161 durante 4 años. El fallo obliga a adecuarse.",
+    tipo:"ok", url:"https://www.csjn.gov.ar/confal/ConsultaCompletaFallos.do?method=verDocumentos&id=675918" },
+
+  { year:"2014", gov:"CFK",
+    norma:"Ley 27.078 — Argentina Digital",
+    desc:"Las TIC se convierten en servicio público. Neutralidad de red garantizada. Se crea la AFTIC. Nunca llegó a reglamentarse completamente antes del cambio de gobierno.",
+    tipo:"ley", url:"https://www.argentina.gob.ar/normativa/nacional/ley-27078-239771" },
+
+  { year:"2015 dic.", gov:"Macri — 19 días de gestión", era:"2015–2019 · El desmantelamiento macrista",
+    norma:"DNU 267/15",
+    desc:"A 19 días de asumir, por decreto de necesidad y urgencia: cable = TIC (sin topes de licencias). Elimina el art. 161 (plazo de adecuación). Crea ENACOM con mayoría oficialista. Disuelve los consejos plurales del AFSCA.",
+    tipo:"conflicto", url:"https://www.argentina.gob.ar/normativa/nacional/decreto-267-2015-256743" },
+
+  { year:"2018", gov:"Macri",
+    norma:"Fusión Cablevisión-Telecom",
+    desc:"El ENACOM aprueba la fusión del mayor cableoperador con la mayor empresa de telefonía e internet del país. Nace el monopolio convergente más grande de la historia argentina.",
+    tipo:"conflicto", url:null },
+
+  { year:"2020", gov:"Alberto Fernández", era:"2019–2023 · El gobierno de Alberto Fernández",
+    norma:"DNU 311/2020",
+    desc:"Declara servicios esenciales a telefonía, internet y TV paga durante la pandemia. Congela precios hasta diciembre de 2020.",
+    tipo:"ok", url:"https://www.argentina.gob.ar/normativa/nacional/decreto-311-2020-335798" },
+
+  { year:"2020", gov:"Alberto Fernández",
+    norma:"DNU 690/2020",
+    desc:"Establece que telefonía móvil, fija, internet y TV paga son servicios públicos en competencia. Regula tarifas. Los grupos mediáticos lo impugnan judicialmente.",
+    tipo:"ok", url:"https://www.argentina.gob.ar/normativa/nacional/decreto-690-2020-341375" },
+
+  { year:"2023 dic.", gov:"Milei", era:"2023– · El gobierno de Milei",
+    norma:"DNU 70/2023",
+    desc:"Desregulación masiva que incluye a las comunicaciones. Elimina el carácter de servicio público. Habilita concentración sin límites sectoriales. El debate parlamentario continúa.",
+    tipo:"conflicto", url:"https://www.argentina.gob.ar/normativa/nacional/decreto-70-2023-395521" },
+];
+
+const TIPO_LABEL = {
+  ley:"Ley", decreto:"Decreto / DNU", hito:"Hito",
+  ok:"Avance democrático", conflicto:"Retroceso"
+};
+
+let currentFilter = 'all';
+
+function buildTimeline(filter) {
+  currentFilter = filter;
+  const container = document.getElementById('tl-container');
+  container.innerHTML = '';
+  let lastEra = null;
+  const list = filter === 'all' ? TL_EVENTS : TL_EVENTS.filter(e => e.tipo === filter);
+
+  list.forEach((e, i) => {
+    if (e.era && e.era !== lastEra) {
+      const era = document.createElement('div');
+      era.className = 'tl-era';
+      era.textContent = e.era;
+      container.appendChild(era);
+      lastEra = e.era;
+    }
+
+    const linkHtml = e.url
+      ? `<a href="${e.url}" target="_blank" rel="noopener" class="ley-link link-${e.tipo}">Ver texto ↗</a>`
+      : '';
+
+    const row = document.createElement('div');
+    row.className = 'tl-row';
+    row.innerHTML = `
+      <div class="tl-spine">
+        <div class="tl-vline"></div>
+        <div class="tl-dot ${e.tipo}"></div>
+        <div class="tl-vline"></div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-card-top">
+          <span class="tl-card-year">${e.year}</span>
+          <span class="tl-card-gov">${e.gov}</span>
+        </div>
+        <div class="tl-card-norma">${e.norma} ${linkHtml}</div>
+        <div class="tl-card-desc">${e.desc}</div>
+      </div>`;
+    container.appendChild(row);
+
+    /* scroll-triggered reveal */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    io.observe(row);
+
+    /* staggered reveal for items already in view */
+    setTimeout(() => row.classList.add('show'), 40 + i * 55);
+  });
+}
+
+document.getElementById('tl-filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  const f = btn.dataset.f;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  buildTimeline(f);
+});
+
+buildTimeline('all');
 </script>
 </body>
 </html>
